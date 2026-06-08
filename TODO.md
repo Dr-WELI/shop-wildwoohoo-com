@@ -34,7 +34,7 @@ Small, low-risk polish that improves how the placeholder shop looks while produc
 - [ ] **C2.** Add a favicon set under `assets/img/` and reference from each HTML head. Source from main site (`favicon.ico`, `favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png`).
 - [ ] **C3.** Add an Open Graph image at `assets/img/og-shop.png` (1200x630) and reference from every page's `og:image` meta. Coordinate with the main site's `og-card.png` aesthetic.
 - [ ] **C4.** Consider adding the language switcher used on the main site (Google Translate dropdown). Brief lifted from `wildwoohoo.com/index.html` line 84-100.
-- [ ] **C5.** Add a brief one-line "Opening Q3 2026 — digital downloads first" status banner to the top of `index.html` for visitors who land before the catalogue exists.
+- [ ] **C5.** Add a brief one-line "Opening Q3 2026 - digital downloads first" status banner to the top of `index.html` for visitors who land before the catalogue exists.
 
 ## D. First product work (when WELI is ready, 2026-Q3)
 

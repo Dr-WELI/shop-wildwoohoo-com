@@ -131,20 +131,20 @@ Plus one new decision introduced by the brief vs the strategy doc:
 
 This repo's role is **step 1 of the static scaffold side**. The rest of the sequence is for future sessions.
 
-1. **Domain + DNS** for shop.wildwoohoo.com — covered by the README in this repo.
-2. **Backend decision and account setup** — Shopify Basic at decision time per strategy doc, deferred to a future session.
-3. **Brand-kit theme port** — Shopify theme that inherits brand kit v5.
-4. **Printful Australia account + product templates** — Stanley/Stella STTU755 + matching hoodie + tote, A2 poster, sticker pack.
-5. **Buttondown account + two-section newsletter template** — first issue draft (no send until shop opens).
-6. **Analytics** — Plausible + GA4 + Meta Pixel + TikTok Pixel.
-7. **Bandcamp Pro account + catalogue migration** — parallel with above.
-8. **Sync EPK page on the main site** — separate from this repo.
-9. **Shop opens with digital-only catalogue** — 2 SKUs to start.
-10. **POD baseline goes live** — 5 SKUs added.
-11. **Books-companion PWA M3 deploy** — Coolify + Hetzner CAX11 per books-companion README.
-12. **Ebook book 1 publishes** — KDP + IngramSpark + Shopify.
-13. **Trade paperback book 1** — same channels.
-14. **Limited drop cadence opens** — drop 1 launches with lead single.
+1. **Domain + DNS** for shop.wildwoohoo.com - covered by the README in this repo.
+2. **Backend decision and account setup** - Shopify Basic at decision time per strategy doc, deferred to a future session.
+3. **Brand-kit theme port** - Shopify theme that inherits brand kit v5.
+4. **Printful Australia account + product templates** - Stanley/Stella STTU755 + matching hoodie + tote, A2 poster, sticker pack.
+5. **Buttondown account + two-section newsletter template** - first issue draft (no send until shop opens).
+6. **Analytics** - Plausible + GA4 + Meta Pixel + TikTok Pixel.
+7. **Bandcamp Pro account + catalogue migration** - parallel with above.
+8. **Sync EPK page on the main site** - separate from this repo.
+9. **Shop opens with digital-only catalogue** - 2 SKUs to start.
+10. **POD baseline goes live** - 5 SKUs added.
+11. **Books-companion PWA M3 deploy** - Coolify + Hetzner CAX11 per books-companion README.
+12. **Ebook book 1 publishes** - KDP + IngramSpark + Shopify.
+13. **Trade paperback book 1** - same channels.
+14. **Limited drop cadence opens** - drop 1 launches with lead single.
 
 ## Hard blockers
 
