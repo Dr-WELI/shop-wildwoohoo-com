@@ -122,17 +122,27 @@ The shop-local `css/shop.css` is independent. It does not try to clone the main 
 
 Fonts are loaded from Google Fonts: Syne, Inter, Instrument Serif, Libre Baskerville, Caveat. Same stack as the main site.
 
+## Recommended phased launch (see STRATEGY-SUMMARY.md)
+
+This scaffold is intentionally backend-agnostic. The recommended path:
+
+- **Phase 1 (Q3 2026):** open with digital downloads, use **Lemon Squeezy** embedded buy buttons on this static scaffold. AU$0/mo fixed cost. Lemon Squeezy is the merchant-of-record so AU GST + EU VAT + US sales tax are handled for you.
+- **Phase 2 (Q4 2026):** add POD merch via **Shopify Lite** (AU$9/mo) + Printful Australia. Embed Shopify Buy Buttons on this scaffold.
+- **Phase 3 (2027, only when justified):** migrate to **Shopify Basic** (AU$45/mo) when SKUs > 15, or limited drops live, or revenue > AU$3K/mo.
+
+The strategy doc's Shopify-first plan is the destination state, not the launch state. See `STRATEGY-SUMMARY.md` for the full reasoning.
+
 ## What's intentionally NOT here
 
 | Not here | Why |
 |---|---|
-| Cart, checkout, payment | Backend decision pending. See `STRATEGY-SUMMARY.md`. |
+| Cart, checkout, payment | Phase 1 will use embedded Lemon Squeezy buy buttons. Phase 2 will use Shopify Lite Buy Buttons. Neither is wired yet. |
 | Real product copy | Products do not exist yet. Placeholders only. |
-| Analytics pixels | Get added with the backend, not before. |
+| Analytics pixels | Get added when traffic is enough to read, not before. |
 | Music releases | Live on Bandcamp (planned: welimusic.bandcamp.com). |
 | Sync EPK | Lives on wildwoohoo.com/music-and-entertainment/. |
 | Programme bookings | Live on drweli.com (cockpit / direct). |
-| Newsletter signup | Planned for Buttondown. Not on the shop in v1. |
+| Newsletter signup | Defer until first 50 subscribers ask for it, then Buttondown. |
 | Indigenous-art-inspired products | Out of scope without documented ICIP consultation. See main `~/Studio/CLAUDE.md`. |
 
 ## Discipline this repo inherits

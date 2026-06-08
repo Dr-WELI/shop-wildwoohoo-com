@@ -4,6 +4,42 @@ A distilled version of `~/Studio/Strategy-Hub-2026/01_WildWooHoo-Studio/SHOP-PRO
 
 **Status of the strategy doc:** draft v1 awaiting WELI redline. Some decisions below are recommendations, not locked. The 15 open decisions are listed at the end.
 
+## Lean phased launch plan (recommended, 2026-06-08)
+
+The strategy doc proposes Shopify Basic from day one (AU$45/mo + Buttondown AU$15 + Bandcamp Pro AU$15 + Plausible AU$15 = AU$90/mo before any sales). That is correct as the destination state, but heavy as the launch state. A leaner phased path gets the shop earning without monthly overhead.
+
+### Phase 1, Q3 2026: digital only, Lemon Squeezy on this static scaffold
+
+- **Backend.** Lemon Squeezy (merchant-of-record, handles AU GST + EU VAT + US sales tax automatically). 5% + AU$0.50 per transaction. No monthly fee.
+- **Cart.** Embedded buy buttons on the static product pages this repo scaffolds.
+- **Catalogue.** The two opening products from the strategy doc: Kangaroo Time classroom kit, Kangaroo Time stems pack. AU$25 each.
+- **Tax posture.** Lemon Squeezy remits GST on your behalf. You do not need to register for AU GST in Phase 1 unless you cross AU$75K turnover from your own ABN sales (Lemon Squeezy sales are theirs from the tax authority's view).
+- **Net.** Shop opens with AU$0/mo fixed cost. Margin on digital is ~92% after Lemon Squeezy fees.
+
+### Phase 2, Q4 2026: add POD merch
+
+- **Backend.** Shopify Lite at AU$9/mo, Buy Button channel. Adds a real cart that integrates Printful Australia natively.
+- **Catalogue.** POD baseline (tee AU$45, hoodie AU$85, tote AU$30, poster AU$30, sticker pack AU$15) from Printful Australia in Brisbane.
+- **Tax.** Shopify Lite hands you the tax setup; this is the point to decide on voluntary GST registration per `SHP-004`.
+- **Net.** ~AU$9/mo fixed cost. Margin on POD tee ~AU$15-20 per unit after Printful + Shopify fees.
+
+### Phase 3, 2027 (only when justified): full Shopify Basic
+
+Migrate to Shopify Basic at AU$45/mo when **any** of these is true:
+- More than ~15 SKUs to manage
+- Limited drops are live (real inventory tracking matters)
+- Books physical paperback is live (multi-variant management gets tedious)
+- AU$3,000+/month in shop revenue (AU$45/mo is now <1.5% of revenue)
+
+This is the strategy doc's recommended destination state. The phased path arrives there with revenue already paying for it.
+
+### What this defers (and why that's fine)
+
+- **Buttondown email.** Add when the first 50 subscribers want a newsletter, not before.
+- **Plausible analytics.** Add when there is enough traffic for the data to be readable.
+- **Bandcamp Pro.** Music wing decision, parallel to the shop, not on this critical path.
+- **Full GST registration.** Lemon Squeezy MoR posture defers this until Phase 2 or beyond.
+
 ## The platform picture
 
 The strategy doc proposes a **two-surface split**:
