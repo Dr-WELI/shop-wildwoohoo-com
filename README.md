@@ -40,7 +40,8 @@ WildWooHooShop/
 ├── categories/
 │   ├── childrens-books/index.html       category placeholder
 │   ├── educational/index.html           category placeholder
-│   ├── merch/index.html                 category placeholder
+│   ├── wear/index.html                  category placeholder (clothing)
+│   ├── prints/index.html                category placeholder (paper goods)
 │   └── tools/index.html                 category placeholder
 └── _template/
     ├── product-page.html                clone for each new product

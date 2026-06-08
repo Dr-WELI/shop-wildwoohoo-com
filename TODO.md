@@ -58,7 +58,7 @@ The lean plan opens with two digital products in Q3 2026.
 
 - [ ] **F1.** Sign up for Shopify Lite at AU$9/mo. Create the Shopify store at `wildwoohoo.myshopify.com`.
 - [ ] **F2.** Connect Printful Australia (Brisbane) in the Shopify dashboard. Set up Stanley/Stella STTU755 as the tee base, plus hoodie + tote + poster + sticker.
-- [ ] **F3.** Generate Shopify Buy Buttons for each product. Replace the placeholder cards on `/categories/merch/index.html` with the Buy Button embeds.
+- [ ] **F3.** Generate Shopify Buy Buttons for each product. Replace the placeholder cards on `/categories/wear/index.html` and `/categories/prints/index.html` with the Buy Button embeds.
 - [ ] **F4.** Decide GST registration timing (SHP-004). When merch starts selling, the MoR shelter from Lemon Squeezy doesn't apply, so this decision becomes live.
 - [ ] **F5.** Set returns policy on the merch product pages (SHP-013).
 - [ ] **F6.** Set EU shipping posture (SHP-006). Recommendation: POD-only EU through Printful EU as RP.
@@ -69,7 +69,7 @@ Track here so they don't get lost.
 
 - [ ] **G1.** Books-companion PWA (Q1 2027). Lives at `companion.wildwoohoo.com` (separate repo), not in this one. Sold from `/categories/tools/`.
 - [ ] **G2.** Ebook book 1 (Q1 2027). Sold from `/categories/childrens-books/`.
-- [ ] **G3.** First limited drop (Q1 2027). Concept work, design pass, drop landing page under `/categories/merch/drop-01-[name]/`. **First moment inventory matters.** Holding capital ~AU$3-5K per drop.
+- [ ] **G3.** First limited drop (Q1 2027). Concept work, design pass, drop landing page under `/categories/wear/drop-01-[name]/`. **First moment inventory matters.** Holding capital ~AU$3-5K per drop.
 - [ ] **G4.** Trade paperback book 1 (Q2 2027). With companion-app unlock code printed in back cover.
 - [ ] **G5.** Drop cadence from Q1 2027: one drop per quarter, numbered, no re-press.
 - [ ] **G6.** Evaluate Shopify Basic migration trigger: >15 SKUs / live drops / AU$3K/month revenue. See Phase 3 in `STRATEGY-SUMMARY.md`.

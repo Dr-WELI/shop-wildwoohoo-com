@@ -57,7 +57,8 @@ The strategy doc originally specified `wildwoohoo.com.au` as the Shopify storefr
 |---|---|---|---|
 | **Children's books** | Pending split session for book content | Q1 2027 ebook, Q2 2027 paperback | Behavioural-ecology grounded, animal narrators, bilingual EN/PT where source was. Books-companion PWA at `companion.wildwoohoo.com` unlocked by code in book one. |
 | **Educational materials** (digital downloads) | Highest-priority lane | Q3 2026 | Workshop kits AU$15-35, Logic stems AU$25-45, methodology kits AU$35, slide packs AU$15, lead-sheets AU$8-12, course bundles AU$120. Opens the shop with Kangaroo Time classroom kit + Kangaroo Time stems pack. |
-| **Merch** | POD baseline first, then limited drops | Q4 2026 POD, Q1 2027 first drop | POD: tee AU$45, hoodie AU$85, tote AU$30, poster AU$30, sticker pack AU$15. Drops: 100-250 units, numbered, no re-press. |
+| **Wear** (the wearables tier of the strategy doc's "Merch") | POD baseline first, then limited drops | Q4 2026 POD, Q1 2027 first drop | POD: tee AU$45, hoodie AU$85, tote AU$30. Drops: 100-250 units, numbered, no re-press. Positioned as clothing, not merch (per WELI 2026-06-08). |
+| **Prints** (the paper-goods tier of the strategy doc's "Merch") | POD posters + stickers, plus illustrated specimen plates later | Q4 2026 | Poster AU$30, sticker pack AU$15, specimen plates AU$30-60. Split from Wear so clothing reads as clothing. |
 | **Tools and apps** | Books-companion only in v1 | Q1 2027 | AU$8.50/month or AU$72/year family subscription. Unlocked by purchase code in book one. |
 
 ## Pricing convention
