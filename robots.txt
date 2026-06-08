@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block the product-page template from being indexed as a real product
+Disallow: /_template/
+
+Sitemap: https://shop.wildwoohoo.com/sitemap.xml
