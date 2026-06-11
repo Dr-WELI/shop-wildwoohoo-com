@@ -1,0 +1,38 @@
+---
+layout: default
+---
+{%- comment -%}
+  Product-page layout. Front matter expected per _template/product-page.html
+  schema. The product collection iterates this layout. Content body holds
+  per-product copy (description, materials, fit, etc.) in Markdown / HTML.
+{%- endcomment -%}
+
+<section class="shop-hero">
+  <span class="shop-hero-stamp">{{ page.breadcrumb }}</span>
+  <h1>{{ page.title_prefix }}<em>{{ page.title_em | default: page.title }}</em></h1>
+  {%- if page.lede %}
+  <p class="shop-hero-lede">{{ page.lede }}</p>
+  {%- endif %}
+  <div class="shop-hero-meta">
+    {%- if page.price %}<span><strong>Price</strong> AU${{ page.price }}</span>{%- endif %}
+    {%- if page.sku %}<span><strong>SKU</strong> {{ page.sku }}</span>{%- endif %}
+    {%- if page.ships_from %}<span><strong>Ships from</strong> {{ page.ships_from }}</span>{%- endif %}
+  </div>
+</section>
+
+{{ content }}
+
+{%- comment -%}
+  AU Consumer Law inline. Per shop immersion Insight 11. Appears on every
+  product page automatically.
+{%- endcomment -%}
+<section class="shop-section">
+  <div class="shop-prose">
+    <p style="font-size: 13px; color: var(--wwh-text-mute);">
+      Your statutory rights under Australian Consumer Law are not affected by our returns policy.
+      If a product is faulty or misdescribed, contact us within 30 days at
+      <a href="mailto:{{ site.data.site.brand.email }}">{{ site.data.site.brand.email }}</a>
+      and we will resolve it: repair, replace, or refund.
+    </p>
+  </div>
+</section>

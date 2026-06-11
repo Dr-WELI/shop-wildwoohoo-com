@@ -1,7 +1,22 @@
+# OS
 .DS_Store
+
+# Editors
 *.swp
 *.swo
 .idea/
 .vscode/
-node_modules/
+
+# Logs
 *.log
+
+# Node (for future tooling)
+node_modules/
+
+# Jekyll build outputs
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# Ruby / Bundler
+vendor/

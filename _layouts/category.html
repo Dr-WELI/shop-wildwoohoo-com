@@ -1,0 +1,41 @@
+---
+layout: default
+---
+{%- comment -%}
+  Category-page layout. Front matter expected:
+    title           — short category name ("Wear")
+    title_em        — italicised display word ("Wear")
+    title_prefix    — optional prefix to display ("Children's")
+    description     — meta description
+    stamp           — small category stamp text ("Category - Wear")
+    lede            — hero lede paragraph
+    meta_items      — list of {label, value} pairs for hero meta strip
+    status          — optional "coming soon" block content (HTML)
+    category_slug   — slug used for nav aria-current matching
+  Body content: free Markdown / HTML below the front matter.
+{%- endcomment -%}
+
+<section class="shop-hero">
+  <span class="shop-hero-stamp">{{ page.stamp }}</span>
+  <h1>{%- if page.title_prefix -%}{{ page.title_prefix }} <em>{{ page.title_em | default: page.title }}</em>{%- else -%}<em>{{ page.title_em | default: page.title }}</em>{%- endif -%}</h1>
+  {%- if page.lede %}
+  <p class="shop-hero-lede">{{ page.lede }}</p>
+  {%- endif %}
+  {%- if page.meta_items %}
+  <div class="shop-hero-meta">
+    {%- for item in page.meta_items %}
+    <span><strong>{{ item.label }}</strong> {{ item.value }}</span>
+    {%- endfor %}
+  </div>
+  {%- endif %}
+</section>
+
+{%- if page.status %}
+<section class="shop-section">
+  <div class="shop-status">
+    {{ page.status }}
+  </div>
+</section>
+{%- endif %}
+
+{{ content }}

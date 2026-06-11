@@ -1,0 +1,72 @@
+# =============================================================================
+# Jekyll config for shop.wildwoohoo.com
+#
+# Built 2026-06-08. Owner: WildWooHoo Studio.
+#
+# This file holds site-wide Jekyll settings. Brand / content data lives in
+# _data/*.yml so editorial changes don't touch this file. To add a new
+# category, edit _data/categories.yml. To add a new product, create a file
+# in _products/. To change the nav, edit _data/nav.yml.
+# =============================================================================
+
+title: WildWooHoo Shop
+description: Books, educational materials, wear, prints and tools from WildWooHoo Studio. Founded by Dr WELI in Sydney.
+url: https://shop.wildwoohoo.com
+baseurl: ""
+lang: en-AU
+timezone: Australia/Sydney
+
+# Author / brand
+author:
+  name: Dr WELI
+  url: https://drweli.com
+  email: hello@wildwoohoo.com
+
+# Build
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+encoding: utf-8
+
+# Plugins (must be on the github-pages allowlist:
+# https://pages.github.com/versions/)
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  categories:
+    output: true
+    permalink: /categories/:path/
+  products:
+    output: true
+    permalink: /products/:path/
+
+# Defaults — applied to every file unless the front matter overrides
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: categories
+    values:
+      layout: category
+  - scope:
+      path: ""
+      type: products
+    values:
+      layout: product
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - STRATEGY-SUMMARY.md
+  - TODO.md
+  - vendor/
+  - node_modules/
+  - _template/

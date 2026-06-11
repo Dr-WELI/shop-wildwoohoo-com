@@ -1,0 +1,31 @@
+{%- comment -%}
+  Shop header. Used on every page via the default layout.
+
+  Active-state: pages with `category_slug` matching a nav item get an
+  `aria-current="page"` attribute for accessibility + styling hooks.
+{%- endcomment -%}
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="shop-header">
+  <div class="shop-header-inner">
+    <a href="{{ '/' | relative_url }}" class="shop-brand" aria-label="{{ site.data.site.brand.shop_name }} home">
+      <span class="shop-brand-chip" aria-hidden="true">{{ site.data.site.chip_text }}</span>
+      <span class="shop-brand-text">
+        {{ site.data.site.brand.name }}<span class="shop-brand-sub">Shop</span>
+      </span>
+    </a>
+
+    <nav class="shop-nav" aria-label="Shop navigation">
+      {%- for item in site.data.nav.primary %}
+      <a href="{{ item.url | relative_url }}"
+         {%- if page.category_slug and item.url contains page.category_slug %} aria-current="page"{% endif -%}
+      >{{ item.label }}</a>
+      {%- endfor %}
+      <a href="{{ site.data.site.main_site.url }}" class="back-to-main">{{ site.data.site.main_site.label }}</a>
+    </nav>
+
+    <button type="button" class="shop-cart" aria-label="Cart, opening soon" disabled>
+      <span class="shop-cart-status">Cart soon</span>
+    </button>
+  </div>
+</header>

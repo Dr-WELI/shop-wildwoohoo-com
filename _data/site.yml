@@ -1,0 +1,45 @@
+# =============================================================================
+# Site-wide brand + content data. Edit here once, propagates everywhere.
+# =============================================================================
+
+brand:
+  name: WildWooHoo
+  shop_name: WildWooHoo Shop
+  tagline: A creative studio for the animal kingdom, including us.
+  tagline_full: A creative studio for the animal kingdom, including us. Founded by Dr WELI in Sydney.
+  abn: "61 239 662 726"
+  city: Sydney
+  country: Australia
+  email: hello@wildwoohoo.com
+
+# Visible chip text. When the brand chip image lands, swap this for an image
+# include in _includes/header.html.
+chip_text: W
+
+main_site:
+  url: https://wildwoohoo.com
+  label: Main site
+  music_url: https://wildwoohoo.com/music-and-entertainment/
+  research_url: https://wildwoohoo.com/research-and-educational/
+  collaborate_url: https://wildwoohoo.com/collaborate/
+  privacy_url: https://wildwoohoo.com/privacy/
+
+artist_site:
+  url: https://drweli.com
+  label: Dr WELI
+
+social:
+  - platform: Instagram
+    handle: "@wildwoohoo"
+    url: https://www.instagram.com/wildwoohoo/
+  - platform: YouTube
+    handle: "@wildwoohoo"
+    url: https://www.youtube.com/@wildwoohoo
+  - platform: TikTok
+    handle: "@wildwoohoo"
+    url: https://www.tiktok.com/@wildwoohoo
+
+acknowledgement: >
+  WildWooHoo Studio works on the unceded lands of the Gadigal people of
+  the Eora Nation. We acknowledge their continuing connection to land,
+  waters and culture, and pay respect to Elders past and present.

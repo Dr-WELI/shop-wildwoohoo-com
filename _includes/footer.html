@@ -1,0 +1,48 @@
+{%- comment -%}
+  Shop footer. Studio + Connect menus driven from _data/site.yml and
+  _data/nav.yml. Acknowledgement of Country sits above the legal line.
+{%- endcomment -%}
+<footer class="shop-footer">
+  <div class="shop-footer-inner">
+
+    <div>
+      <a href="{{ '/' | relative_url }}" class="shop-footer-brand">{{ site.data.site.brand.name }}</a>
+      <p class="shop-footer-tag">
+        {{ site.data.site.brand.tagline }} Founded by
+        <a href="{{ site.data.site.artist_site.url }}">{{ site.data.site.artist_site.label }}</a>
+        in {{ site.data.site.brand.city }}.
+      </p>
+    </div>
+
+    <div class="shop-footer-menu">
+      <h5>Shop</h5>
+      <a href="{{ '/' | relative_url }}">Home</a>
+      {%- for item in site.data.nav.primary %}
+      <a href="{{ item.url | relative_url }}">{{ item.label }}</a>
+      {%- endfor %}
+    </div>
+
+    <div class="shop-footer-menu">
+      <h5>Studio</h5>
+      {%- for item in site.data.nav.studio %}
+      <a href="{{ item.url }}">{{ item.label }}</a>
+      {%- endfor %}
+    </div>
+
+    <div class="shop-footer-menu">
+      <h5>Connect</h5>
+      <a href="mailto:{{ site.data.site.brand.email }}">{{ site.data.site.brand.email }}</a>
+      {%- for item in site.data.site.social %}
+      <a href="{{ item.url }}">{{ item.platform }}</a>
+      {%- endfor %}
+    </div>
+
+  </div>
+
+  <p class="shop-footer-ack">{{ site.data.site.acknowledgement }}</p>
+
+  <div class="shop-footer-bottom">
+    <span>© {{ site.data.site.brand.name }} Studio · ABN {{ site.data.site.brand.abn }} · {{ site.data.site.brand.city }}, {{ site.data.site.brand.country }}</span>
+    <span><a href="{{ site.data.site.main_site.privacy_url }}">Privacy</a></span>
+  </div>
+</footer>

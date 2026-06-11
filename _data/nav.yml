@@ -1,0 +1,29 @@
+# =============================================================================
+# Primary navigation. Edit one line here, every page's nav updates.
+#
+# Items render in this order. The "main_site" item is treated as a back-link
+# in the header template.
+# =============================================================================
+
+primary:
+  - label: Books
+    url: /categories/childrens-books/
+  - label: Educational
+    url: /categories/educational/
+  - label: Wear
+    url: /categories/wear/
+  - label: Prints
+    url: /categories/prints/
+  - label: Tools
+    url: /categories/tools/
+
+# Footer Studio menu (links to main site)
+studio:
+  - label: Main site
+    url: https://wildwoohoo.com
+  - label: Music & Entertainment
+    url: https://wildwoohoo.com/music-and-entertainment/
+  - label: Research & Educational
+    url: https://wildwoohoo.com/research-and-educational/
+  - label: Collaborate
+    url: https://wildwoohoo.com/collaborate/
