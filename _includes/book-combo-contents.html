@@ -1,0 +1,30 @@
+{%- comment -%}
+  Slipcase combo contents. Lists the booklets inside a set.
+  page.combo_contents: list of { title, blurb (optional), url (optional) }.
+  A missing url renders as "in development", never a broken link.
+{%- endcomment -%}
+{%- if page.combo_contents %}
+<section class="shop-section">
+  <div class="shop-section-header">
+    <div>
+      <p class="shop-section-stamp">In the slipcase</p>
+      <h2>Four <em>booklets</em></h2>
+    </div>
+  </div>
+  <ol class="combo-contents">
+    {%- for item in page.combo_contents %}
+    <li>
+      <span class="combo-num" aria-hidden="true">{{ forloop.index }}</span>
+      <div class="combo-body">
+        {%- if item.url %}
+        <h3><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
+        {%- else %}
+        <h3>{{ item.title }} <span class="combo-soon">in development</span></h3>
+        {%- endif %}
+        {%- if item.blurb %}<p>{{ item.blurb }}</p>{%- endif %}
+      </div>
+    </li>
+    {%- endfor %}
+  </ol>
+</section>
+{%- endif %}

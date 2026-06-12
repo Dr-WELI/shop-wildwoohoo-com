@@ -1,0 +1,24 @@
+{%- comment -%}
+  Companion-app explainer. LOCKED model: free, code-unlocked, no subscription,
+  collects nothing about the child. Shown only when page.companion_code is set.
+  Copy comes from _data/books.yml so it stays identical across every book page.
+{%- endcomment -%}
+{%- if page.companion_code %}
+<section class="shop-section">
+  <div class="shop-section-header">
+    <div>
+      <p class="shop-section-stamp">Companion</p>
+      <h2>The {{ site.data.books.companion.name }}</h2>
+    </div>
+  </div>
+  <div class="shop-prose">
+    <p>{{ site.data.books.companion.model }}</p>
+    <ul>
+      {%- for promise in site.data.books.companion.promises %}
+      <li>{{ promise }}</li>
+      {%- endfor %}
+    </ul>
+    <p class="book-code">This booklet's code: <span>{{ page.companion_code }}</span></p>
+  </div>
+</section>
+{%- endif %}

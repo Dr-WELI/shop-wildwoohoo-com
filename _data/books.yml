@@ -1,0 +1,57 @@
+# =============================================================================
+# Shared book data. Keeps every book + book-combo product page consistent.
+#
+# The book product model: WildWooHoo Books are short field-guide booklets
+# (8 to 16 pages), sold as a four-booklet slipcase set (the hero product) and
+# as single booklets. Grounded in named behavioural-ecology research, written
+# for a 7 to 8 year-old reader, bilingual EN + PT.
+#
+# This is the locked model from the children's-books canonical docs at
+# ~/Studio/Projects-In-The-Site/Childrens-Books/. If that model changes, edit
+# here once and every book page follows.
+# =============================================================================
+
+imprint: WildWooHoo Books
+
+# ---- Companion app -----------------------------------------------------------
+# LOCKED model: free with the book, unlocked by a printed code, NOT a
+# subscription, collects nothing about the child. Do not reintroduce a
+# subscription price here without WELI's sign-off (it conflicts with the locked
+# Production-Ethics framework + books-companion architecture).
+companion:
+  name: WildWooHoo Books companion
+  url: https://companion.wildwoohoo.com
+  model: >
+    Every booklet carries a code inside the back cover. An adult enters it once
+    to open the companion for that booklet. It is free with the book, it is not
+    a subscription, and it collects no information about the child.
+  promises:
+    - No account, and no login for the child.
+    - No data collected from children.
+    - No streaks, points, or notifications.
+    - Real recordings, and links to open-access science, not a content feed.
+
+# ---- Production-ethics transparency -----------------------------------------
+# Shown on every book page. The locked discipline made visible to the buyer.
+ethics:
+  heading: How this book treats your child
+  points:
+    - label: No data from children
+      body: The booklet and its companion collect nothing about the reader.
+    - label: Sends them outside
+      body: Every booklet ends with something to do in the real world, away from a screen.
+    - label: Cited to real research
+      body: Every fact traces to named, published science. The sources are printed in the back.
+    - label: Accessible by default
+      body: Atkinson Hyperlegible type, generous spacing, plain language, EN and PT.
+
+# ---- ICIP transparency -------------------------------------------------------
+# Per locked LOCKED-DECISIONS 18.4. One of these lines prints on every book page.
+icip:
+  clean: >
+    This booklet uses no First Nations knowledge or motifs. A future edition that
+    draws on First Nations seasonal knowledge will be co-authored and credited
+    with the community whose knowledge it is.
+  co_authored: >
+    Co-authored and credited with the First Nations community whose knowledge it
+    carries, under a written ICIP agreement.

@@ -1,0 +1,39 @@
+---
+layout: default
+---
+{%- comment -%}
+  Book / book-combo product layout. Front-matter schema lives in
+  _template/book-product.html.
+
+  Set `layout: book` in the product's front matter to use this instead of the
+  generic `product` layout (the products collection defaults to `product`).
+
+  Reading order: hero -> buy-state -> body copy -> spec grid -> combo contents
+  -> companion -> ethics + ICIP transparency -> AU Consumer Law (shared).
+{%- endcomment -%}
+
+<section class="shop-hero">
+  <span class="shop-hero-stamp">{{ page.breadcrumb }}</span>
+  <h1>{{ page.title_prefix }}<em>{{ page.title_em | default: page.title }}</em></h1>
+  {%- if page.title_pt %}
+  <p class="shop-hero-alt" lang="pt">{{ page.title_pt }}</p>
+  {%- endif %}
+  {%- if page.lede %}
+  <p class="shop-hero-lede">{{ page.lede }}</p>
+  {%- endif %}
+  <div class="shop-hero-meta">
+    {%- if page.format %}<span><strong>Format</strong> {{ page.format }}</span>{%- endif %}
+    {%- if page.languages %}<span><strong>Languages</strong> {{ page.languages }}</span>{%- endif %}
+    {%- if page.age_band %}<span><strong>Age</strong> {{ page.age_band }} years</span>{%- endif %}
+  </div>
+</section>
+
+{%- include buy-state.html -%}
+
+{{ content }}
+
+{%- include book-meta.html -%}
+{%- include book-combo-contents.html -%}
+{%- include book-companion.html -%}
+{%- include ethics-transparency.html -%}
+{%- include au-consumer-law.html -%}

@@ -1,0 +1,144 @@
+<!--
+  BOOK PRODUCT TEMPLATE - WildWooHoo Shop (Jekyll architecture)
+  ============================================================================
+  Reference file. Excluded from the build via _config.yml (_template/).
+
+  Use this for the children's-books line: short field-guide booklets (8 to 16
+  pages) and the four-booklet slipcase sets. For tees / posters / digital
+  downloads use _template/product-page.html instead.
+
+  HOW TO USE
+  1. Copy this file to /_products/[product-slug].html
+     Example: /_products/a-kangaroo-mob-in-autumn.html
+  2. Replace every REPLACE-ME in the front matter and body.
+  3. Set `layout: book` (the products collection defaults to `product`, so a
+     book page must opt in to the book layout).
+  4. Set `product_class: book` for a single booklet, or `book-combo` for a
+     slipcase set.
+  5. The page builds at /products/[product-slug]/ automatically.
+  6. Full editorial chain (writer -> reviewer -> chief-editor) before push.
+
+  THE LOCKED BOOK MODEL (do not drift from this without WELI sign-off)
+    - Booklets are 8 to 16 pages, field-guide style, not picture books.
+    - Sold as a four-booklet slipcase set (hero) and as single booklets.
+    - Bilingual EN + PT. Age band 7 to 8.
+    - Companion is FREE, unlocked by a printed code, NOT a subscription, and
+      collects no data from children. Set `companion_code` to switch it on.
+    - Every fact cited to named research, printed in the back of the booklet.
+    - ICIP: `icip_status: clean` unless the booklet is co-authored with the
+      First Nations community whose knowledge it carries (then `co-authored`).
+
+  COMMERCE STATES (buy-state include reads these)
+    availability: preorder | in_stock | out_of_stock
+    pod_failover: none | lulu-direct
+      - book-combo is ALWAYS `none` (slipcase sets are offset-only, no POD).
+      - single booklet can be `lulu-direct` (print-on-demand failover).
+    No scarcity counters, no urgency timers. The buy-state include enforces
+    this; do not add countdown or low-stock copy in the body.
+
+  PRICING (per shop Insight 8)
+    Round AU$ figures only. Combo around AU$70, single booklet around AU$18.
+
+  META DESCRIPTION (per Insight 5)
+    150-160 chars, hand-written. Type + one specificity + soft commitment.
+
+  COPY LENGTH (per Insight 34)
+    Books: 200-300 words body copy. Descriptive, not creative. Include a
+    "What this is not" line (Insight 12) to pre-empt the picture-book
+    assumption.
+
+  AU CONSUMER LAW (per Insight 11)
+    Auto-appended by the book layout. Do not duplicate here.
+-->
+
+<!-- ===== FRONT MATTER (copy this YAML block; do not include this comment) =====
+
+---
+layout: book
+product_class: book           # book | book-combo
+
+# Identity
+title: REPLACE-ME Booklet Title
+title_prefix: "REPLACE-ME "    # text before the italic word in the h1
+title_em: REPLACE-ME           # the italic display word in the h1
+title_pt: REPLACE-ME           # Portuguese title (single booklets)
+sku: REPLACE-ME-SKU
+isbn: TBC                      # Thorpe-Bowker ISBN once allocated
+imprint: WildWooHoo Books
+breadcrumb: Children's books - REPLACE-ME series
+
+# Hero
+lede: REPLACE-ME 1-2 sentence opening. Name the thing, locate it.
+format: Saddle-stitch booklet  # or "Four saddle-stitch booklets in a slipcase"
+pages: 16                      # omit for a combo
+languages: EN + PT
+age_band: 7-8
+universe: REPLACE-ME series    # e.g. Kangaroo Time
+motif: REPLACE-ME set name     # e.g. A Kangaroo Mob Across Seasons
+face_of_four: "REPLACE-ME of 4"  # single booklets only
+
+# Commerce
+price: REPLACE-ME              # round AU$ integer
+price_note: null              # e.g. "for the set of four" on a combo
+availability: preorder        # preorder | in_stock | out_of_stock
+pod_failover: lulu-direct     # single booklet: lulu-direct ; combo: none
+ship_window: REPLACE-ME       # e.g. "2027" (preorder copy)
+ships_from: Sydney, Australia
+made_in: Australia
+
+# Combo only: the booklets in the slipcase (omit url for ones not yet built)
+combo_contents:
+  - title: REPLACE-ME
+    blurb: REPLACE-ME one line.
+    url: /products/REPLACE-ME-slug/
+
+# Companion (single booklets): switches on the companion explainer
+companion_code: REPLACE-ME-CODE
+
+# Ethics
+icip_status: clean            # clean | co-authored
+
+# Meta
+description: REPLACE-ME 150-160 char hand-written meta description.
+og_type: product
+og_image: /assets/img/REPLACE-ME-slug/01-cover.jpg
+schema:
+  "@context": https://schema.org
+  "@type": Book
+  name: REPLACE-ME Booklet Title
+  bookFormat: https://schema.org/Paperback
+  numberOfPages: 16
+  publisher:
+    "@type": Organization
+    name: WildWooHoo Books
+  inLanguage:
+    - en
+    - pt
+  offers:
+    "@type": Offer
+    price: REPLACE-ME
+    priceCurrency: AUD
+    availability: https://schema.org/PreOrder
+---
+
+===== END FRONT MATTER ===== -->
+
+<!-- ===== BODY (descriptive, 200-300 words, AU English, no em-dashes) ===== -->
+
+<section class="shop-section">
+  <div class="shop-prose">
+    <p>REPLACE-ME opening paragraph. What the booklet covers, plainly.</p>
+
+    <p>REPLACE-ME middle paragraph. The specific content, the named research it
+    draws on, the bilingual note.</p>
+
+    <p><strong>What this is not.</strong> REPLACE-ME one or two sentences
+    pre-empting the picture-book assumption.</p>
+  </div>
+</section>
+
+<!--
+  Note: spec grid, combo contents, companion explainer, ethics + ICIP
+  transparency, and the AU Consumer Law block are all appended automatically
+  by the book layout (_layouts/book.html). Do not duplicate them here.
+-->

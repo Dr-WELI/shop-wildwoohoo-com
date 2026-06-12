@@ -1,0 +1,26 @@
+{%- comment -%}
+  Production-ethics + ICIP transparency. The locked discipline made visible to
+  the buyer, and a genuine point of difference for the line. Content from
+  _data/books.yml so every book page reads the same way.
+{%- endcomment -%}
+<section class="shop-section book-ethics">
+  <div class="shop-section-header">
+    <div>
+      <p class="shop-section-stamp">{{ site.data.books.ethics.heading }}</p>
+    </div>
+  </div>
+  <div class="ethics-grid">
+    {%- for point in site.data.books.ethics.points %}
+    <div class="ethics-point">
+      <h4>{{ point.label }}</h4>
+      <p>{{ point.body }}</p>
+    </div>
+    {%- endfor %}
+  </div>
+
+  {%- if page.icip_status == 'co-authored' %}
+  <p class="icip-line">{{ site.data.books.icip.co_authored }}</p>
+  {%- else %}
+  <p class="icip-line">{{ site.data.books.icip.clean }}</p>
+  {%- endif %}
+</section>

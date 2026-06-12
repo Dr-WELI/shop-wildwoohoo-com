@@ -22,17 +22,4 @@ layout: default
 
 {{ content }}
 
-{%- comment -%}
-  AU Consumer Law inline. Per shop immersion Insight 11. Appears on every
-  product page automatically.
-{%- endcomment -%}
-<section class="shop-section">
-  <div class="shop-prose">
-    <p style="font-size: 13px; color: var(--wwh-text-mute);">
-      Your statutory rights under Australian Consumer Law are not affected by our returns policy.
-      If a product is faulty or misdescribed, contact us within 30 days at
-      <a href="mailto:{{ site.data.site.brand.email }}">{{ site.data.site.brand.email }}</a>
-      and we will resolve it: repair, replace, or refund.
-    </p>
-  </div>
-</section>
+{%- include au-consumer-law.html -%}
