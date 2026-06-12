@@ -1,24 +1,42 @@
 {%- comment -%}
-  Companion-app explainer. LOCKED model: free, code-unlocked, no subscription,
-  collects nothing about the child. Shown only when page.companion_code is set.
+  Companion-app explainer. HYBRID model (WELI 2026-06-09):
+    - Free child-facing core, unlocked by the printed code, no subscription,
+      collects nothing about the child.
+    - Optional adult parent + teacher pack, sold separately, spans the series,
+      never tracks the child and never appears inside the child's companion.
   Copy comes from _data/books.yml so it stays identical across every book page.
+  Shown for single booklets (page.companion_code) and for slipcase sets.
 {%- endcomment -%}
-{%- if page.companion_code %}
+{%- if page.companion_code or page.product_class == 'book-combo' %}
+{%- assign c = site.data.books.companion -%}
 <section class="shop-section">
   <div class="shop-section-header">
     <div>
       <p class="shop-section-stamp">Companion</p>
-      <h2>The {{ site.data.books.companion.name }}</h2>
+      <h2>The {{ c.name }}</h2>
     </div>
   </div>
   <div class="shop-prose">
-    <p>{{ site.data.books.companion.model }}</p>
+    <p>{{ c.free.model }}</p>
     <ul>
-      {%- for promise in site.data.books.companion.promises %}
-      <li>{{ promise }}</li>
+      {%- for item in c.free.includes %}
+      <li>{{ item }}</li>
       {%- endfor %}
     </ul>
+    {%- if page.companion_code %}
     <p class="book-code">This booklet's code: <span>{{ page.companion_code }}</span></p>
+    {%- elsif page.product_class == 'book-combo' %}
+    <p class="book-code">Each booklet in the set has its own code inside the back cover.</p>
+    {%- endif %}
+
+    <h3 class="companion-extras-head">{{ c.extras.name }} <span class="companion-optional">optional</span></h3>
+    <p>{{ c.extras.model }}</p>
+    <ul>
+      {%- for item in c.extras.includes %}
+      <li>{{ item }}</li>
+      {%- endfor %}
+    </ul>
+    <p class="companion-note">{{ c.extras.note }}</p>
   </div>
 </section>
 {%- endif %}

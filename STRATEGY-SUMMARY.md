@@ -44,7 +44,7 @@ This is the strategy doc's recommended destination state. The phased path arrive
 
 The strategy doc proposes a **two-surface split**:
 
-- **shop.wildwoohoo.com** (this repo, GitHub Pages now, intended for Shopify Basic later) holds: children's books (ebook + paperback + companion subscription), POD merch, limited drops, digital downloads (kits + stems + course materials), companion-app subscriptions.
+- **shop.wildwoohoo.com** (this repo, GitHub Pages now, intended for Shopify Basic later) holds: children's books (slipcase sets + single booklets + hybrid companion), POD merch, limited drops, digital downloads (kits + stems + course materials).
 - **welimusic.bandcamp.com** (recommended handle) holds: WELI music releases, music-tied merch.
 
 The two surfaces share footer cross-links but never duplicate catalogues. Music stays in the music ecosystem; everything else stays in the brand ecosystem.
@@ -55,11 +55,13 @@ The strategy doc originally specified `wildwoohoo.com.au` as the Shopify storefr
 
 | Catalogue | Status | First ship | Notes |
 |---|---|---|---|
-| **Children's books** | Pending split session for book content | Q1 2027 ebook, Q2 2027 paperback | Behavioural-ecology grounded, animal narrators, bilingual EN/PT where source was. Books-companion PWA at `companion.wildwoohoo.com` unlocked by code in book one. |
+| **Children's books** | Model locked (see note below) | Q1 2027 first set | Short field-guide booklets (8 to 16pp), sold as four-booklet slipcase sets (hero, ~AU$70) and single booklets (~AU$18). Ages 7 to 8, bilingual EN + PT, cited to named research. NOT picture books and NOT animal-narrator stories. Companion is hybrid: free, code-unlocked, no-data child core + optional paid adult pack. |
 | **Educational materials** (digital downloads) | Highest-priority lane | Q3 2026 | Workshop kits AU$15-35, Logic stems AU$25-45, methodology kits AU$35, slide packs AU$15, lead-sheets AU$8-12, course bundles AU$120. Opens the shop with Kangaroo Time classroom kit + Kangaroo Time stems pack. |
 | **Wear** (the wearables tier of the strategy doc's "Merch") | POD baseline first, then limited drops | Q4 2026 POD, Q1 2027 first drop | POD: tee AU$45, hoodie AU$85, tote AU$30. Drops: 100-250 units, numbered, no re-press. Positioned as clothing, not merch (per WELI 2026-06-08). |
 | **Prints** (the paper-goods tier of the strategy doc's "Merch") | POD posters + stickers, plus illustrated specimen plates later | Q4 2026 | Poster AU$30, sticker pack AU$15, specimen plates AU$30-60. Split from Wear so clothing reads as clothing. |
-| **Tools and apps** | Books-companion only in v1 | Q1 2027 | AU$8.50/month or AU$72/year family subscription. Unlocked by purchase code in book one. |
+| **Tools and apps** | Books-companion only in v1 | Q1 2027 | Hybrid (WELI 2026-06-09): free child-facing core unlocked by the code in each booklet (recordings, maps, sources, notebook), no subscription, no child data. Optional paid parent + teacher pack spans the series (lesson plans, curriculum notes, parent guide, citation chain), pricing to confirm. |
+
+**Canonical book model (do not re-seed the old framing).** The children's-books line is owned by `~/Studio/Projects-In-The-Site/Childrens-Books/` (universe / motif / face architecture, Production-Ethics framework, books-companion architecture). The earlier picture-book / animal-narrator / ebook-then-paperback / child-subscription framing was retired on 2026-06-09. The shop's book product model lives in `_data/books.yml` + `_layouts/book.html` + `_includes/book-*.html`; the sales pathway is at `Childrens-Books/Production-Publishing/07_Shop-Book-Sales-Pathway.md`.
 
 ## Pricing convention
 

@@ -14,22 +14,49 @@
 imprint: WildWooHoo Books
 
 # ---- Companion app -----------------------------------------------------------
-# LOCKED model: free with the book, unlocked by a printed code, NOT a
-# subscription, collects nothing about the child. Do not reintroduce a
-# subscription price here without WELI's sign-off (it conflicts with the locked
-# Production-Ethics framework + books-companion architecture).
+# HYBRID model (WELI 2026-06-09): the child-facing core is FREE, code-unlocked,
+# no subscription, collects nothing about the child. An OPTIONAL adult pack
+# (parent + teacher) is sold separately and spans the series. The child side
+# never upsells and never tracks the reader. Do not collapse this back into a
+# child-facing subscription (it conflicts with the locked Production-Ethics
+# framework + books-companion architecture).
 companion:
   name: WildWooHoo Books companion
   url: https://companion.wildwoohoo.com
-  model: >
-    Every booklet carries a code inside the back cover. An adult enters it once
-    to open the companion for that booklet. It is free with the book, it is not
-    a subscription, and it collects no information about the child.
-  promises:
-    - No account, and no login for the child.
-    - No data collected from children.
-    - No streaks, points, or notifications.
-    - Real recordings, and links to open-access science, not a content feed.
+
+  # Free, child-facing, per booklet, unlocked by the printed code.
+  free:
+    model: >
+      Every booklet carries a code inside the back cover. An adult enters it once
+      to open that booklet's companion. The child-facing companion is free with
+      the book, it is not a subscription, and it collects nothing about the child.
+    includes:
+      - Real recordings of the animals in the booklet.
+      - Links to open-access video and the science behind each fact.
+      - A where-to-see-it map built from open data.
+      - The booklet's printed sources, linked.
+      - Printable researcher notebook pages.
+    promises:
+      - No account, and no login for the child.
+      - No data collected from children.
+      - No streaks, points, or notifications.
+
+  # Optional, adult-facing, sold separately, spans the whole series.
+  extras:
+    name: Parent and teacher pack
+    model: >
+      An optional pack for the grown-ups, sold separately, that spans the whole
+      series. Bought and used by an adult. It never asks the child for an account
+      and never tracks the reader.
+    includes:
+      - Curriculum-alignment notes for AU primary.
+      - Lesson plans and classroom extension activities.
+      - A parent guide with conversation prompts across the books.
+      - The full cross-series citation chain in one place.
+    note: >
+      The child-facing companion stays free and data-free. The paid pack is an
+      adult resource and never appears inside the child's companion. Pricing to
+      confirm.
 
 # ---- Production-ethics transparency -----------------------------------------
 # Shown on every book page. The locked discipline made visible to the buyer.

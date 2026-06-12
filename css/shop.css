@@ -689,3 +689,24 @@ a:focus-visible, button:focus-visible {
   border-radius: 4px;
   padding: 2px 8px;
 }
+
+/* ---- Companion: optional adult pack ------------------------------------- */
+.companion-extras-head {
+  margin-top: 32px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.companion-optional {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--wwh-text-faint);
+  border: 1px solid var(--wwh-divider);
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+.companion-note { font-size: 13px; color: var(--wwh-text-faint); font-style: italic; }
