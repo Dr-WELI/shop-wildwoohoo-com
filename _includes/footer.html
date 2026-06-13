@@ -43,6 +43,6 @@
 
   <div class="shop-footer-bottom">
     <span>© {{ site.data.site.brand.name }} Studio · ABN {{ site.data.site.brand.abn }} · {{ site.data.site.brand.city }}, {{ site.data.site.brand.country }}</span>
-    <span><a href="{{ site.data.site.main_site.privacy_url }}">Privacy</a></span>
+    <span class="shop-footer-legal">{%- for item in site.data.nav.legal %}<a href="{% if item.url contains '://' %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}">{{ item.label }}</a>{%- endfor %}</span>
   </div>
 </footer>

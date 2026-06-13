@@ -31,11 +31,17 @@ encoding: utf-8
 
 # Plugins (must be on the github-pages allowlist:
 # https://pages.github.com/versions/)
+# jekyll-seo-tag is deliberately NOT used: _includes/head.html hand-rolls all
+# meta, and running both would duplicate tags.
 plugins:
   - jekyll-sitemap
-  - jekyll-seo-tag
 
 # Collections
+# NOTE: the 'categories' collection name shadows Jekyll's reserved
+# site.categories (post-categories hash). Verified safe on Jekyll 3.10
+# (SiteDrop#[] returns collection docs first). CONSTRAINT: this site must
+# NEVER use posts or category-aware plugins. If that ever changes, rename
+# this collection first.
 collections:
   categories:
     output: true
@@ -44,7 +50,7 @@ collections:
     output: true
     permalink: /products/:path/
 
-# Defaults — applied to every file unless the front matter overrides
+# Defaults - applied to every file unless the front matter overrides
 defaults:
   - scope:
       path: ""

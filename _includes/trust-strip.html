@@ -1,0 +1,12 @@
+{%- comment -%}
+  Quiet one-row identity strip for the landing: who runs the shop, where it
+  ships from, returns, prices. Small type, hairline-top dl cells, no card
+  chrome (book-meta register, not cat-card). Copy lives in _data/policies.yml
+  and _data/site.yml; edit there, never here.
+{%- endcomment -%}
+<dl class="trust-strip">
+  <div><dt>Who you are buying from</dt><dd>WildWooHoo Studio, ABN {{ site.data.site.brand.abn }}. Founded by <a href="{{ site.data.site.artist_site.url }}">Dr WELI</a>. Part of <a href="{{ site.data.site.main_site.url }}">wildwoohoo.com</a>.</dd></div>
+  <div><dt>Ships from</dt><dd><a href="{{ site.data.site.policies_url | relative_url }}#shipping">Sydney, Australia. AU and NZ come first.</a></dd></div>
+  <div><dt>Returns</dt><dd><a href="{{ site.data.site.policies_url | relative_url }}#returns">{{ site.data.policies.returns.summary }}</a></dd></div>
+  <div><dt>Prices</dt><dd><a href="{{ site.data.site.policies_url | relative_url }}#prices-and-tax">Round figures in Australian dollars.</a></dd></div>
+</dl>

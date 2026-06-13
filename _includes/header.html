@@ -3,13 +3,18 @@
 
   Active-state: pages with `category_slug` matching a nav item get an
   `aria-current="page"` attribute for accessibility + styling hooks.
+
+  Below 560px the inline nav hides and the details/summary disclosure menu
+  (.shop-menu) shows instead - pure HTML + CSS, no JavaScript. The chip
+  image carries an empty alt: the brand anchor's aria-label is the
+  accessible name.
 {%- endcomment -%}
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header class="shop-header">
   <div class="shop-header-inner">
     <a href="{{ '/' | relative_url }}" class="shop-brand" aria-label="{{ site.data.site.brand.shop_name }} home">
-      <span class="shop-brand-chip" aria-hidden="true">{{ site.data.site.chip_text }}</span>
+      <img class="shop-brand-chip-img" src="{{ site.data.site.chip.image | relative_url }}" alt="" width="36" height="36">
       <span class="shop-brand-text">
         {{ site.data.site.brand.name }}<span class="shop-brand-sub">Shop</span>
       </span>
@@ -23,6 +28,15 @@
       {%- endfor %}
       <a href="{{ site.data.site.main_site.url }}" class="back-to-main">{{ site.data.site.main_site.label }}</a>
     </nav>
+
+    <details class="shop-menu">
+      <summary aria-label="Menu"><span></span><span></span><span></span></summary>
+      <div class="shop-menu-panel">
+        {%- for item in site.data.nav.primary %}<a href="{{ item.url | relative_url }}">{{ item.label }}</a>{%- endfor %}
+        <a href="{{ site.data.site.main_site.url }}">{{ site.data.site.main_site.label }}</a>
+        <a href="mailto:{{ site.data.site.brand.email }}">{{ site.data.site.brand.email }}</a>
+      </div>
+    </details>
 
     <button type="button" class="shop-cart" aria-label="Cart, opening soon" disabled>
       <span class="shop-cart-status">Cart soon</span>

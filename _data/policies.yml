@@ -1,0 +1,43 @@
+# Single source for all policy copy. Every surface renders from here so
+# wording can never diverge. Single-pass editorial class; WELI reads
+# /policies/ once before deploy. Digital-returns line pends SHP-013;
+# physical GST line firms up at SHP-004.
+
+trust_line: "30-day returns, ships from Sydney, prices in Australian dollars."
+
+identity:
+  who_prose: >
+    The shop is the retail counter of WildWooHoo Studio, the creative studio
+    behind wildwoohoo.com. It is run from Sydney, Australia, founded by Dr WELI,
+    ABN 61 239 662 726. It sells books, educational materials, wear, prints and
+    tools made by the studio. Music releases and sync licensing live on their
+    own surfaces, linked from the main site.
+
+returns:
+  window_days: 30
+  summary: "30-day returns. Faulty or misdescribed, we pay the return postage. Change of mind, you pay it."
+  faulty: "If a product arrives faulty or misdescribed, write to us within 30 days and we will repair, replace or refund it. We pay the return postage."
+  change_of_mind: "If you change your mind, you have 30 days to return a physical product unused and in its original condition. You pay the return postage and we refund the product price."
+  digital: "Digital downloads are sold through Lemon Squeezy, who handle payment and refunds for those orders. If a download is faulty or not as described, write to us and we will put it right."
+  acl_lead: "Your statutory rights under Australian Consumer Law are not affected by our returns policy. If a product is faulty or misdescribed, contact us within 30 days at"
+  acl_tail: "and we will resolve it: repair, replace, or refund."
+
+shipping:
+  origin: "Sydney, Australia"
+  domestic: "Orders ship from Sydney. Australia and New Zealand come first."
+  international: "International rates are shown at checkout, calculated from your address. There is no free worldwide shipping here; the real cost is shown before you pay."
+  pod: "Print-on-demand items are printed by Printful Australia in Brisbane for AU and NZ orders. International print-on-demand orders print at the Printful facility nearest the buyer."
+  eu: "Physical orders to the EU ship through print-on-demand partners only, with the print partner acting as the EU Responsible Person under GPSR. Inventory-held items ship to AU and NZ only for now."
+  digital: "Delivered by email as a download link, on payment. Nothing is posted."
+
+tax:
+  digital: "Prices in Australian dollars. Tax is handled at checkout by Lemon Squeezy, the merchant of record."
+  physical: "Prices in Australian dollars. GST included where it applies."
+  prose: "Prices are round figures in Australian dollars. Digital downloads are sold through Lemon Squeezy, who handle GST, VAT and sales tax at checkout as the merchant of record. Physical products include GST where it applies."
+
+children:
+  age_lead: "Recommended for ages"
+  supervision: "Adult supervision recommended."
+  wash: "Wash before first use."
+  small_parts: "Not suitable for children under 3 because of small parts."
+  prose: "Children's products carry an age recommendation on the product page, with supervision and care notes where they apply. The books companion is free with each booklet, is not a subscription, and collects nothing about the child."

@@ -27,3 +27,13 @@ studio:
     url: https://wildwoohoo.com/research-and-educational/
   - label: Collaborate
     url: https://wildwoohoo.com/collaborate/
+
+# Footer legal row. Returns and Shipping anchor into /policies/; Privacy lives
+# on the main site.
+legal:
+  - label: Returns
+    url: /policies/#returns
+  - label: Shipping
+    url: /policies/#shipping
+  - label: Privacy
+    url: https://wildwoohoo.com/privacy/

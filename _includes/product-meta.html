@@ -1,0 +1,26 @@
+{%- comment -%}
+  Generic spec grid for non-book products (digital downloads, wear, prints,
+  tools), mirroring the book-meta dl register. Renders only the fields
+  present; renders nothing at all when none of the fields exist.
+{%- endcomment -%}
+{% if page.format or page.files or page.material or page.size or page.licence or page.fit or page.made_in or page.care %}
+<section class="shop-section">
+  <div class="shop-section-header">
+    <div>
+      <p class="shop-section-stamp">The details</p>
+    </div>
+  </div>
+  <dl class="book-meta product-meta">
+    {%- if page.format %}<div><dt>Format</dt><dd>{{ page.format }}</dd></div>{%- endif %}
+    {%- if page.files %}<div><dt>Files</dt><dd>{{ page.files }}</dd></div>{%- endif %}
+    {%- if page.size %}<div><dt>Size</dt><dd>{{ page.size }}</dd></div>{%- endif %}
+    {%- if page.licence %}<div><dt>Licence</dt><dd>{{ page.licence }}</dd></div>{%- endif %}
+    {%- if page.fulfilment == 'digital' %}<div><dt>Delivery</dt><dd>Download link by email, on payment</dd></div>{%- endif %}
+    {%- if page.material %}<div><dt>Material</dt><dd>{{ page.material }}</dd></div>{%- endif %}
+    {%- if page.fit %}<div><dt>Fit</dt><dd>{{ page.fit }}</dd></div>{%- endif %}
+    {%- if page.made_in %}<div><dt>Made in</dt><dd>{{ page.made_in }}</dd></div>{%- endif %}
+    {%- if page.ships_from %}<div><dt>Ships from</dt><dd>{{ page.ships_from }}</dd></div>{%- endif %}
+    {%- if page.care %}<div><dt>Care</dt><dd>{{ page.care }}</dd></div>{%- endif %}
+  </dl>
+</section>
+{% endif %}

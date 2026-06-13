@@ -3,20 +3,24 @@ layout: default
 ---
 {%- comment -%}
   Category-page layout. Front matter expected:
-    title           — short category name ("Wear")
-    title_em        — italicised display word ("Wear")
-    title_prefix    — optional prefix to display ("Children's")
-    description     — meta description
-    stamp           — small category stamp text ("Category - Wear")
-    lede            — hero lede paragraph
-    meta_items      — list of {label, value} pairs for hero meta strip
-    status          — optional "coming soon" block content (HTML)
-    category_slug   — slug used for nav aria-current matching
+    title           - short category name ("Wear")
+    title_em        - italicised display word ("Wear")
+    title_prefix    - optional prefix to display ("Children's")
+    description     - meta description
+    stamp           - small category stamp text ("Category - Wear")
+    lede            - hero lede paragraph
+    meta_items      - list of {label, value} pairs for hero meta strip
+    status          - optional "coming soon" block content (HTML)
+    category_slug   - slug used for nav aria-current matching
+    slug            - collection slug; products with a matching `category`
+                      key render in the auto grid below the status block
+    interest_hook   - optional _data/interest.yml hook id; renders the
+                      register-interest band after the body content
   Body content: free Markdown / HTML below the front matter.
 {%- endcomment -%}
 
 <section class="shop-hero">
-  <span class="shop-hero-stamp">{{ page.stamp }}</span>
+  {%- if page.stamp %}<span class="shop-hero-stamp">{{ page.stamp }}</span>{%- endif %}
   <h1>{%- if page.title_prefix -%}{{ page.title_prefix }} <em>{{ page.title_em | default: page.title }}</em>{%- else -%}<em>{{ page.title_em | default: page.title }}</em>{%- endif -%}</h1>
   {%- if page.lede %}
   <p class="shop-hero-lede">{{ page.lede }}</p>
@@ -38,4 +42,24 @@ layout: default
 </section>
 {%- endif %}
 
+{%- comment -%}
+  Auto products grid. When the category holds no products, nothing renders;
+  the status callout above is the honest zero-state.
+{%- endcomment -%}
+{%- assign prods = site.products | where: 'category', page.slug | sort: 'order' -%}
+{%- if prods.size > 0 %}
+<section class="shop-section">
+  <div class="shop-section-header"><div><p class="shop-section-stamp">In this catalogue</p></div></div>
+  <div class="cat-grid">{%- for prod in prods %}{%- include product-card.html product=prod %}{%- endfor %}</div>
+</section>
+{%- endif %}
+
 {{ content }}
+
+{%- if page.interest_hook %}
+<section class="shop-section">{%- include register-interest.html hook=page.interest_hook -%}</section>
+{%- endif %}
+
+<section class="shop-section"><p class="shop-fineprint">{{ site.data.policies.trust_line }} <a href="{{ site.data.site.policies_url | relative_url }}">The full policies</a>.</p></section>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":{{ page.title | jsonify }},"url":{{ page.url | absolute_url | jsonify }},"isPartOf":{"@type":"OnlineStore","name":"WildWooHoo Shop","url":"https://shop.wildwoohoo.com"}}</script>

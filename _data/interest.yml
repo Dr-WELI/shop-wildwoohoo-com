@@ -1,0 +1,35 @@
+# Register-interest hooks. Each promise is an operational commitment: one
+# email per hook when its catalogue opens, sent from the hello@ inbox,
+# nothing else. Subjects double as inbox segmentation until a list platform
+# lands (SHP-007).
+
+promise: "One email when it opens. Nothing else."
+fallback_lead: "No mail app? Write to"
+fallback_mid: "with the subject"
+
+hooks:
+  educational:
+    label: "Tell me when the classroom kit opens"
+    context: "Kangaroo Time classroom kit, opening Q3 2026."
+    subject: "Register interest: Kangaroo Time classroom kit"
+    body: "Year level: \nCurriculum: "
+  childrens-books:
+    label: "Tell me when the first set opens"
+    context: "Kangaroo Time books, opening Q1 2027."
+    subject: "Register interest: Kangaroo Time books"
+    body: ""
+  wear:
+    label: "Tell me when the first tee ships"
+    context: "Wear baseline, opening Q4 2026."
+    subject: "Register interest: Wear"
+    body: ""
+  prints:
+    label: "Tell me when prints open"
+    context: "Prints baseline, opening Q4 2026."
+    subject: "Register interest: Prints"
+    body: ""
+  tools:
+    label: "Tell me when the companion opens"
+    context: "Books companion, opening Q1 2027."
+    subject: "Register interest: Books companion"
+    body: ""

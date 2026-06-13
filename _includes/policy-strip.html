@@ -1,0 +1,13 @@
+{%- comment -%}
+  Trust strip for product surfaces. Included by the product and book layouts
+  on every product page. The Your-rights column is the approved ACL sentence,
+  byte-identical, sourced from _data/policies.yml (acl_lead + mailto +
+  acl_tail). Reads page.fulfilment to pick the delivery line.
+{%- endcomment -%}
+<section class="shop-section">
+  <dl class="policy-strip">
+    <div><dt>Returns</dt><dd><p>{{ site.data.policies.returns.summary }}</p><p><a href="{{ site.data.site.policies_url | relative_url }}#returns">Full returns policy</a></p></dd></div>
+    <div><dt>Delivery</dt><dd><p>{% if page.fulfilment == 'digital' %}{{ site.data.policies.shipping.digital }}{% else %}{{ site.data.policies.shipping.domestic }} {{ site.data.policies.shipping.international }}{% endif %}</p><p><a href="{{ site.data.site.policies_url | relative_url }}#shipping">Full shipping policy</a></p></dd></div>
+    <div><dt>Your rights</dt><dd><p>{{ site.data.policies.returns.acl_lead }} <a href="mailto:{{ site.data.site.brand.email }}">{{ site.data.site.brand.email }}</a> {{ site.data.policies.returns.acl_tail }}</p></dd></div>
+  </dl>
+</section>

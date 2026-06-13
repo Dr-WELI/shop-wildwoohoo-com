@@ -8,6 +8,14 @@
    Shopify (per Strategy-Hub-2026 SHOP-PRODUCTS-PIPELINE-PLAN.md), the
    theme should re-derive from wwh-brand-tokens.css.
 
+   KEPT DIVERGENCES from the main site (deliberate, recorded 2026-06-12):
+   - Visible inline nav above 560px: retail taxonomy must be visible.
+     Below 560px a no-JS details/summary disclosure menu takes over.
+   - No atmosphere layer: the shop is the quieter surface by charter.
+   - Syne headings: the brand kit's role table says Comfortaa. Flagged to
+     WELI 2026-06-12; do not convert without a before/after sign-off.
+   - Border-pill hero stamps: quieter than the main site's dark glass.
+
    Built 2026-06-08. Owner: WildWooHoo Studio.
    ========================================================================== */
 
@@ -52,12 +60,6 @@ h4 { font-size: 16px; letter-spacing: 0.08em; text-transform: uppercase; font-we
 em { font-family: 'Instrument Serif', 'Libre Baskerville', Georgia, serif; font-style: italic; font-weight: 400; }
 strong { font-weight: 600; }
 
-.script {
-  font-family: 'Caveat', cursive;
-  font-weight: 700;
-  color: var(--wwh-yellow);
-}
-
 /* ---- Header ------------------------------------------------------------- */
 .shop-header {
   position: sticky;
@@ -90,18 +92,11 @@ strong { font-weight: 600; }
   letter-spacing: -0.01em;
 }
 
-.shop-brand-chip {
+.shop-brand-chip-img {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: var(--wwh-forest);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
-  font-size: 14px;
-  color: var(--wwh-sage-light);
+  display: block;
 }
 
 .shop-brand-text { display: inline-flex; align-items: baseline; gap: 6px; }
@@ -127,7 +122,7 @@ strong { font-weight: 600; }
   transition: color 160ms ease;
 }
 
-.shop-nav a:hover, .shop-nav a:focus { color: var(--wwh-text); outline: none; }
+.shop-nav a:hover, .shop-nav a:focus { color: var(--wwh-text); }
 
 .shop-nav a.back-to-main::before { content: "←  "; color: var(--wwh-moss); }
 
@@ -150,6 +145,51 @@ strong { font-weight: 600; }
   text-transform: uppercase;
   color: var(--wwh-text-faint);
 }
+
+/* ---- Mobile disclosure menu (no JS: details/summary, shown below 560px) -- */
+.shop-menu { display: none; position: relative; }
+
+.shop-menu summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.shop-menu summary::-webkit-details-marker { display: none; }
+
+.shop-menu summary span {
+  display: block;
+  height: 1.5px;
+  width: 18px;
+  background: var(--wwh-sage-light);
+}
+.shop-menu summary span:nth-child(2) { width: 22px; }
+.shop-menu summary span:nth-child(3) { width: 14px; }
+
+.shop-menu-panel {
+  position: absolute;
+  right: -8px;
+  top: calc(100% + 10px);
+  min-width: 220px;
+  background: rgba(2, 2, 4, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--wwh-divider);
+  border-radius: 8px;
+  padding: 8px 0;
+}
+
+.shop-menu-panel a {
+  display: block;
+  padding: 10px 18px;
+  font-size: 15px;
+  color: var(--wwh-text-mute);
+}
+
+.shop-menu-panel a:hover { color: var(--wwh-text); }
 
 /* ---- Hero --------------------------------------------------------------- */
 .shop-hero {
@@ -192,6 +232,10 @@ strong { font-weight: 600; }
 
 .shop-hero-meta strong { color: var(--wwh-text); font-weight: 600; }
 
+/* Quiet jump row (anchors inside the hero meta strip, e.g. /policies/) */
+.shop-hero-meta a { color: var(--wwh-sage-bright); }
+.shop-hero-meta a:hover { color: var(--wwh-cyan); }
+
 /* ---- Section common ----------------------------------------------------- */
 .shop-section {
   padding: clamp(56px, 8vw, 96px) 24px;
@@ -217,6 +261,16 @@ strong { font-weight: 600; }
   color: var(--wwh-text-mute);
 }
 
+/* magenta only to break the green a bit - do not extend */
+.stamp-num { color: var(--wwh-magenta); font-weight: 700; }
+
+.shop-section-lede {
+  color: var(--wwh-text-mute);
+  max-width: 720px;
+  margin: 0 0 28px;
+  font-size: 15px;
+}
+
 /* ---- Category grid ------------------------------------------------------ */
 .cat-grid {
   display: grid;
@@ -239,14 +293,13 @@ strong { font-weight: 600; }
 .cat-card:hover, .cat-card:focus {
   transform: translateY(-2px);
   border-color: var(--wwh-moss);
-  outline: none;
 }
 
 .cat-card-stamp {
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--wwh-text-faint);
+  color: var(--wwh-text-mute);
   margin-bottom: 16px;
 }
 
@@ -272,6 +325,18 @@ strong { font-weight: 600; }
 .cat-card-foot .arrow { color: var(--wwh-text-mute); transition: transform 200ms ease; }
 .cat-card:hover .cat-card-foot .arrow { transform: translateX(4px); color: var(--wwh-sage-bright); }
 
+/* Honest availability chip on product cards (states the real state only) */
+.chip {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--wwh-divider);
+  border-radius: 999px;
+  padding: 2px 10px;
+  color: var(--wwh-sage-bright);
+}
+
 /* ---- Status / off-shop pointers ----------------------------------------- */
 .shop-status {
   background: var(--wwh-bg-soft);
@@ -286,7 +351,7 @@ strong { font-weight: 600; }
 
 .shop-status strong { color: var(--wwh-sage-bright); font-weight: 600; }
 .shop-status a { color: var(--wwh-sage-bright); border-bottom: 1px solid currentColor; }
-.shop-status a:hover { color: var(--wwh-yellow); }
+.shop-status a:hover { color: var(--wwh-cyan); }
 
 .off-shop-grid {
   display: grid;
@@ -328,7 +393,7 @@ strong { font-weight: 600; }
 .shop-prose li { margin-bottom: 8px; color: var(--wwh-text); }
 .shop-prose li::marker { color: var(--wwh-moss); }
 .shop-prose a { color: var(--wwh-sage-bright); border-bottom: 1px solid currentColor; }
-.shop-prose a:hover { color: var(--wwh-yellow); }
+.shop-prose a:hover { color: var(--wwh-cyan); }
 
 /* ---- Footer ------------------------------------------------------------- */
 .shop-footer {
@@ -393,18 +458,20 @@ strong { font-weight: 600; }
   flex-wrap: wrap;
   gap: 16px;
   font-size: 12px;
-  color: var(--wwh-text-faint);
+  color: var(--wwh-text-mute);
 }
 
-.shop-footer-bottom a { color: var(--wwh-text-faint); }
-.shop-footer-bottom a:hover { color: var(--wwh-text-mute); }
+.shop-footer-bottom a { color: var(--wwh-text-mute); }
+.shop-footer-bottom a:hover { color: var(--wwh-text); }
+
+.shop-footer-legal { display: inline-flex; gap: 16px; flex-wrap: wrap; }
 
 /* ---- Acknowledgement of Country ----------------------------------------- */
 .shop-footer-ack {
   max-width: 1280px;
   margin: 32px auto 0;
   font-size: 13px;
-  color: var(--wwh-text-faint);
+  color: var(--wwh-text-mute);
   line-height: 1.55;
   font-style: italic;
 }
@@ -443,21 +510,140 @@ strong { font-weight: 600; }
   color: var(--wwh-sage-bright);
 }
 
+/* =============================================================================
+   CONVERSION + TRUST COMPONENTS
+   Landing timeline, register-interest hooks, trust strip, policy strip and
+   the children's safety note. All on the existing 14 tokens; no card chrome
+   beyond what the include needs.
+   ========================================================================== */
+
+/* ---- Launch timeline (landing opening plan) ------------------------------ */
+.launch-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.launch-timeline li { border-top: 1px solid var(--wwh-divider); padding-top: 16px; }
+
+/* magenta only to break the green a bit - do not extend */
+.lt-num {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: var(--wwh-magenta);
+}
+
+.lt-window {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--wwh-text-mute);
+  margin-left: 8px;
+}
+
+.launch-timeline h3 { font-size: 18px; margin: 10px 0 6px; }
+.launch-timeline p { font-size: 14px; color: var(--wwh-text-mute); margin: 0; }
+
+/* ---- Register interest (landing band + category foot) -------------------- */
+.ri-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* No hover lift: the card is not a link */
+.ri-card {
+  padding: 28px;
+  background: var(--wwh-bg-soft);
+  border: 1px solid var(--wwh-divider);
+  border-radius: 8px;
+}
+
+.ri-card h3 { margin-bottom: 8px; }
+.ri-card > p { font-size: 14px; color: var(--wwh-text-mute); margin: 0 0 18px; }
+
+.ri-context { font-size: 14px; color: var(--wwh-text-mute); margin: 0 0 14px; }
+.ri-promise { margin: 12px 0 0; font-size: 13px; color: var(--wwh-text-mute); }
+.ri-fallback { margin: 6px 0 0; font-size: 12px; color: var(--wwh-text-mute); }
+.ri-fallback a { color: var(--wwh-sage-bright); }
+
+/* ---- Trust strip (landing identity row; book-meta register) -------------- */
+dl.trust-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px 28px;
+  margin: 0;
+}
+
+dl.trust-strip > div { border-top: 1px solid var(--wwh-divider); padding-top: 12px; }
+
+dl.trust-strip dt {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--wwh-text-mute);
+  margin-bottom: 4px;
+}
+
+dl.trust-strip dd { margin: 0; font-size: 14px; color: var(--wwh-text); }
+.trust-strip a { color: var(--wwh-sage-bright); }
+
+/* ---- Policy strip (foot of every product + book page) -------------------- */
+.policy-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px 28px;
+  margin: 0;
+  max-width: 860px;
+}
+
+.policy-strip > div { border-top: 1px solid var(--wwh-divider); padding-top: 12px; }
+
+.policy-strip dt {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--wwh-text-mute);
+  margin-bottom: 4px;
+}
+
+.policy-strip dd { margin: 0; }
+.policy-strip p { font-size: 13px; color: var(--wwh-text-mute); margin: 0 0 8px; }
+.policy-strip a { color: var(--wwh-sage-bright); }
+
+/* ---- Children's safety note ---------------------------------------------- */
+.safety-note { max-width: 720px; }
+
 /* ---- Responsive --------------------------------------------------------- */
 @media (max-width: 860px) {
   .shop-nav { gap: 14px; font-size: 13px; }
-  .shop-cart { display: none; }
+  .shop-cart { padding: 6px 10px; }
+  .shop-cart-status { font-size: 10px; }
   .shop-brand-sub { display: none; }
   .shop-footer-inner { grid-template-columns: 1fr 1fr; }
+  dl.trust-strip { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 700px) {
+  .launch-timeline { grid-template-columns: 1fr; }
+  .ri-grid { grid-template-columns: 1fr; }
+  .policy-strip { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 560px) {
   .shop-header-inner { padding: 10px 16px; gap: 12px; }
   .shop-nav { display: none; }
+  .shop-menu { display: block; }
   .shop-hero { padding-left: 16px; padding-right: 16px; }
   .shop-section { padding-left: 16px; padding-right: 16px; }
   .shop-footer-inner { grid-template-columns: 1fr; gap: 28px; }
   .shop-footer-bottom { flex-direction: column; align-items: flex-start; }
+  dl.trust-strip { grid-template-columns: 1fr; }
 }
 
 /* ---- Focus rings (accessibility) ---------------------------------------- */
@@ -465,6 +651,14 @@ a:focus-visible, button:focus-visible {
   outline: 2px solid var(--wwh-focus-ring);
   outline-offset: 3px;
   border-radius: 4px;
+}
+
+/* Explicit ring where higher-specificity hover/focus rules used to kill it */
+.cat-card:focus-visible,
+.shop-nav a:focus-visible,
+.shop-menu summary:focus-visible {
+  outline: 2px solid var(--wwh-focus-ring);
+  outline-offset: 3px;
 }
 
 /* ---- Skip-to-content link (keyboard accessibility) ---------------------- */
@@ -520,10 +714,14 @@ a:focus-visible, button:focus-visible {
 @media print {
   body { background: #fff; color: #000; }
   .shop-header, .shop-footer, .shop-cart { display: none; }
+  .shop-menu, .register-interest, .buy-btn, .skip-link { display: none; }
   main { padding: 0; }
   a { color: #000; text-decoration: underline; }
+  .shop-prose a[href^="http"]::after,
+  .policy-strip a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 11px; }
   .shop-status, .off-shop-card { border-color: #000; background: transparent; }
   .buy-state, .combo-contents li, .ethics-point { border-color: #000; background: transparent; }
+  .buy-state, .book-meta, .ethics-grid, .policy-strip { page-break-inside: avoid; }
 }
 
 /* =============================================================================
@@ -534,7 +732,7 @@ a:focus-visible, button:focus-visible {
    timer by design (see _includes/buy-state.html).
    ========================================================================== */
 
-/* ---- Shared fine print (AU Consumer Law, buy-state note) ---------------- */
+/* ---- Shared fine print (safety note, category trust line) --------------- */
 .shop-fineprint { font-size: 13px; color: var(--wwh-text-mute); }
 
 /* ---- Book hero: Portuguese alt title ------------------------------------ */
@@ -555,6 +753,12 @@ a:focus-visible, button:focus-visible {
   border-left: 3px solid var(--wwh-savanna);
   border-radius: 8px;
 }
+
+/* Tax line directly under the price (wording from _data/policies.yml) */
+.buy-state-tax { font-size: 12px; color: var(--wwh-text-mute); margin: -6px 0 16px; }
+
+/* Fixed geometry: availability states swap without layout shift */
+.buy-action { min-height: 92px; }
 
 .buy-state-price { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; }
 .buy-state-price .amount {
@@ -588,7 +792,7 @@ a:focus-visible, button:focus-visible {
 .buy-btn.ghost { background: transparent; color: var(--wwh-text); border-color: var(--wwh-moss); }
 .buy-btn.ghost:hover { border-color: var(--wwh-sage-bright); color: var(--wwh-sage-bright); }
 
-.buy-state-fine { margin: 16px 0 0; font-size: 12px; color: var(--wwh-text-faint); font-style: italic; }
+.buy-state-fine { margin: 16px 0 0; font-size: 12px; color: var(--wwh-text-mute); font-style: italic; }
 
 /* ---- Book spec grid ----------------------------------------------------- */
 .book-meta {
@@ -603,7 +807,7 @@ a:focus-visible, button:focus-visible {
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--wwh-text-faint);
+  color: var(--wwh-text-mute);
   margin-bottom: 4px;
 }
 .book-meta dd { margin: 0; font-size: 15px; color: var(--wwh-text); }
@@ -645,7 +849,7 @@ a:focus-visible, button:focus-visible {
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--wwh-text-faint);
+  color: var(--wwh-text-mute);
   margin-left: 6px;
 }
 
@@ -674,7 +878,7 @@ a:focus-visible, button:focus-visible {
   border-top: 1px solid var(--wwh-divider);
   font-size: 13px;
   font-style: italic;
-  color: var(--wwh-text-faint);
+  color: var(--wwh-text-mute);
 }
 
 /* ---- Companion code chip ------------------------------------------------ */
@@ -704,9 +908,9 @@ a:focus-visible, button:focus-visible {
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--wwh-text-faint);
+  color: var(--wwh-text-mute);
   border: 1px solid var(--wwh-divider);
   border-radius: 999px;
   padding: 2px 10px;
 }
-.companion-note { font-size: 13px; color: var(--wwh-text-faint); font-style: italic; }
+.companion-note { font-size: 13px; color: var(--wwh-text-mute); font-style: italic; }

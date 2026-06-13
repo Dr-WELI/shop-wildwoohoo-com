@@ -2,13 +2,18 @@
    wwh-brand-tokens.css — WildWooHoo brand palette v3 (2026-06-05).
 
    COPIED VERBATIM from ~/Studio/Websites/WildWooHooDotCom/wwh-brand-tokens.css
-   on 2026-06-08. Single source of truth lives in the main site repo. If WELI
+   on 2026-06-12. Single source of truth lives in the main site repo. If WELI
    updates the canonical tokens, mirror them here. Do not edit in place
    without re-syncing both files.
 
    The brand palette is the 14-anchor extraction from logo-tech.png's
    Photoshop median-cut 256-colour quantization. Proportionally green-
    dominant, with cyan + yellow tech accents, against a near-black void.
+
+   Hex anchors below are the actual most-frequent values in the quantized
+   palette, with role + proportion documented. No other colours appear in
+   the website's CSS. If a colour is needed for a new effect, it must snap
+   to one of these or be added as a 15th token (with WELI sign-off).
 
    PROPORTION RULES — preserve the logo-tech tonal balance:
    - GREENS dominate (60-65% of all surface + body)
@@ -57,4 +62,38 @@
   --wwh-accent-3:       var(--wwh-magenta);
   --wwh-divider:        var(--wwh-gray-deep);
   --wwh-focus-ring:     var(--wwh-cyan);
+
+  /* ---- Legacy aliases — kept for backwards-compat while the rest of the
+          stylesheets migrate. New code uses the var(--wwh-*) tokens directly. ---- */
+  --cream:              var(--wwh-sage-light);    /* was #FBF7EE — snapped to sage-light */
+  --night-savanna:      var(--wwh-forest-deep);   /* was #1B2D24-ish */
+  --spectrum-red:       var(--wwh-savanna);       /* no red in palette → savanna */
+  --spectrum-peach:     var(--wwh-moss);          /* no peach → moss */
+  --spectrum-honey:     var(--wwh-yellow);        /* honey → yellow */
+  --spectrum-savanna:   var(--wwh-savanna);
+  --spectrum-amber:     var(--wwh-yellow);        /* amber → yellow */
+  --spectrum-sage:      var(--wwh-sage-bright);
+  --spectrum-lavender:  var(--wwh-cyan);          /* lavender → cyan */
+  --spectrum-violet:    var(--wwh-gray-deep);     /* violet → gray-deep */
+}
+
+/* =============================================================================
+   BASE CANVAS HARDENING (2026-06-12). Dark is the BASE state, not a repaint.
+   wwh-archive.css flips ink to light and wwh-darkmode.css paints the dark
+   canvas last; if either file fails to load (404, stale cache), pages must
+   degrade to dark-but-readable, never light-text-on-light. This file loads
+   first on every page, so these two rules are the safety net. Later layers
+   re-assert the same values.
+   ========================================================================== */
+body.wwh-awal {
+  background: var(--wwh-void-soft);
+  color: var(--wwh-sage-light);
+}
+
+/* Base keyboard focus ring (WCAG 2.4.7) - cyan per --wwh-focus-ring above.
+   wwh-darkmode.css repeats this for the dark canvas; defined here so focus
+   stays visible even if a later stylesheet fails. */
+:focus-visible {
+  outline: 2px solid var(--wwh-focus-ring);
+  outline-offset: 3px;
 }

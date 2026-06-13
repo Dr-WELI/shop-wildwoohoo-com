@@ -1,5 +1,6 @@
 {%- comment -%}
-  Availability + buy state for a book or book-combo.
+  Availability + buy state. The single buy panel, included by BOTH the
+  product and book layouts.
 
   PRODUCTION-ETHICS DISCIPLINE (locked). This block must never:
     - show a scarcity counter ("only 3 left")
@@ -8,7 +9,12 @@
   Honest state only. Print-on-demand is disclosed by name (shop Insight 19).
 
   Inputs (page front matter):
-    availability   preorder | in_stock | out_of_stock   (default: preorder)
+    availability   live | in_stock | preorder | out_of_stock (default: preorder)
+    checkout_url   Lemon Squeezy hosted-checkout URL; presence makes `live`
+                   render a real buy link (plain anchor without lemon.js,
+                   overlay when lemon.js loads)
+    fulfilment     digital | pod | inventory (picks the tax line and the
+                   delivery disclosure line)
     pod_failover   none | lulu-direct                    (combos are always none)
     product_class  book | book-combo
     price          AU$ integer
@@ -22,9 +28,20 @@
       <span class="amount">AU${{ page.price }}</span>
       {%- if page.price_note %}<span class="note">{{ page.price_note }}</span>{%- endif %}
     </div>
+    <p class="buy-state-tax">{% if page.fulfilment == 'digital' %}{{ site.data.policies.tax.digital }}{% else %}{{ site.data.policies.tax.physical }}{% endif %}</p>
     {%- endif %}
 
+    <div class="buy-action">
     {%- case page.availability -%}
+    {%- when 'live' -%}
+      {%- if page.checkout_url -%}
+      <p class="buy-state-line in">Available now.</p>
+      <a class="buy-btn lemonsqueezy-button" href="{{ page.checkout_url }}">Buy now</a>
+      {%- else -%}
+      <p class="buy-state-line in">Available now.</p>
+      <button type="button" class="buy-btn" disabled>Cart opening soon</button>
+      {%- endif -%}
+
     {%- when 'in_stock' -%}
       <p class="buy-state-line in">In stock. Ships from {{ page.ships_from | default: 'Sydney' }}.</p>
       <button type="button" class="buy-btn" disabled>Cart opening soon</button>
@@ -35,13 +52,16 @@
       <button type="button" class="buy-btn" disabled>Cart opening soon</button>
       {%- else -%}
       <p class="buy-state-line back">Out of stock. The next print run is on the way.</p>
-      <a class="buy-btn ghost" href="mailto:{{ site.data.site.brand.email }}?subject=Back in stock: {{ page.title }}">Email me when it is back</a>
+      <a class="buy-btn ghost" href="mailto:{{ site.data.site.brand.email }}?subject={{ 'Back in stock: ' | append: page.title | url_encode | replace: '+', '%20' }}">Email me when it is back</a>
       {%- endif -%}
 
     {%- else -%}
       <p class="buy-state-line soon">Opening{% if page.ship_window %} {{ page.ship_window }}{% endif %}. Not for sale yet.</p>
-      <a class="buy-btn ghost" href="mailto:{{ site.data.site.brand.email }}?subject=Tell me when this opens: {{ page.title }}">Tell me when it opens</a>
+      <a class="buy-btn ghost" href="mailto:{{ site.data.site.brand.email }}?subject={{ 'Tell me when this opens: ' | append: page.title | url_encode | replace: '+', '%20' }}">Tell me when it opens</a>
     {%- endcase -%}
+    </div>
+
+    {% if page.fulfilment == 'digital' %}<p class="buy-state-line">{{ site.data.policies.shipping.digital }}</p>{% elsif page.fulfilment == 'pod' %}<p class="buy-state-line">{{ site.data.policies.shipping.pod }}</p>{% endif %}
 
     <p class="buy-state-fine">No countdown timers. No low-stock counters. We tell you the real state and nothing else.</p>
   </div>

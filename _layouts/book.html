@@ -9,11 +9,12 @@ layout: default
   generic `product` layout (the products collection defaults to `product`).
 
   Reading order: hero -> buy-state -> body copy -> spec grid -> combo contents
-  -> companion -> ethics + ICIP transparency -> AU Consumer Law (shared).
+  -> companion -> ethics + ICIP transparency -> related -> safety note ->
+  policy strip (shared; carries the AU Consumer Law sentence).
 {%- endcomment -%}
 
 <section class="shop-hero">
-  <span class="shop-hero-stamp">{{ page.breadcrumb }}</span>
+  {%- if page.breadcrumb %}<span class="shop-hero-stamp">{{ page.breadcrumb }}</span>{%- endif %}
   <h1>{{ page.title_prefix }}<em>{{ page.title_em | default: page.title }}</em></h1>
   {%- if page.title_pt %}
   <p class="shop-hero-alt" lang="pt">{{ page.title_pt }}</p>
@@ -36,4 +37,6 @@ layout: default
 {%- include book-combo-contents.html -%}
 {%- include book-companion.html -%}
 {%- include ethics-transparency.html -%}
-{%- include au-consumer-law.html -%}
+{%- include related-products.html -%}
+{%- include safety-note.html -%}
+{%- include policy-strip.html -%}

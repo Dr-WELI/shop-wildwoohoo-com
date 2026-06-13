@@ -1,0 +1,17 @@
+{%- comment -%}
+  Permission-based register-interest hook. The promise line is an operational
+  commitment - one email per hook when it opens. Swap the anchor for a form
+  embed here when SHP-007 lands; pages never change.
+
+  Signature: {% include register-interest.html hook="educational" %}
+  (or hook=page.interest_hook). Hooks live in _data/interest.yml.
+{%- endcomment -%}
+{%- assign h = site.data.interest.hooks[include.hook] -%}
+{%- if h %}
+<div class="register-interest">
+  <p class="ri-context">{{ h.context }}</p>
+  <a class="buy-btn ghost" href="mailto:{{ site.data.site.brand.email }}?subject={{ h.subject | url_encode | replace: '+', '%20' }}{% if h.body != '' %}&body={{ h.body | url_encode | replace: '+', '%20' }}{% endif %}">{{ h.label }}</a>
+  <p class="ri-promise">{{ site.data.interest.promise }}</p>
+  <p class="ri-fallback">{{ site.data.interest.fallback_lead }} <a href="mailto:{{ site.data.site.brand.email }}">{{ site.data.site.brand.email }}</a> {{ site.data.interest.fallback_mid }} "{{ h.subject }}".</p>
+</div>
+{%- endif %}

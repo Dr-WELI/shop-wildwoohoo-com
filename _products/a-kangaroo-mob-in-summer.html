@@ -22,9 +22,14 @@ universe: Kangaroo Time
 motif: A Kangaroo Mob Across Seasons
 face_of_four: "1 of 4"
 
+# Catalogue placement (category must match a _categories slug; order sorts the grid)
+category: childrens-books
+order: 2
+
 # Commerce
 price: 18
 availability: preorder
+fulfilment: inventory
 pod_failover: lulu-direct
 ship_window: Q1 2027
 ships_from: Sydney, Australia
@@ -32,6 +37,12 @@ made_in: Australia
 
 # Companion (locked model: free, code-unlocked, no subscription, no child data)
 companion_code: KT-5-1-EN-PT
+
+# Related (manual, max 3 - teaches the range, never maximises basket size)
+related:
+  - title: A Kangaroo Mob Across Seasons, slipcase set
+    url: /products/kangaroo-time-across-seasons-set/
+    reason: The same mob through all four seasons, in a slipcase.
 
 # Ethics / compliance
 icip_status: clean
@@ -43,11 +54,16 @@ schema:
   "@context": https://schema.org
   "@type": Book
   name: A Kangaroo Mob in Summer
+  url: https://shop.wildwoohoo.com/products/a-kangaroo-mob-in-summer/
   bookFormat: https://schema.org/Paperback
   numberOfPages: 16
   publisher:
     "@type": Organization
     name: WildWooHoo Books
+  author:
+    "@type": Person
+    name: Dr WELI
+    url: https://drweli.com
   audience:
     "@type": PeopleAudience
     suggestedMinAge: 7
@@ -60,6 +76,12 @@ schema:
     price: 18
     priceCurrency: AUD
     availability: https://schema.org/PreOrder
+    hasMerchantReturnPolicy:
+      "@type": MerchantReturnPolicy
+      applicableCountry: AU
+      returnPolicyCategory: https://schema.org/MerchantReturnFiniteReturnWindow
+      merchantReturnDays: 30
+      merchantReturnLink: https://shop.wildwoohoo.com/policies/#returns
 ---
 
 <section class="shop-section">

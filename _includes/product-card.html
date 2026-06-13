@@ -1,0 +1,23 @@
+{%- comment -%}
+  Card for the category auto-grids: honest availability chip, one price
+  surface, no fake add-to-cart. The chip states the real state only.
+
+  Signature: {% include product-card.html product=prod %}
+{%- endcomment -%}
+<a href="{{ include.product.url | relative_url }}" class="cat-card product-card">
+  {%- if include.product.breadcrumb %}<span class="cat-card-stamp">{{ include.product.breadcrumb }}</span>{%- endif %}
+  <h3>{{ include.product.title }}</h3>
+  <p>{{ include.product.lede }}</p>
+  <div class="cat-card-foot">
+    {%- if include.product.price %}<span class="ship">AU${{ include.product.price }}</span>{%- endif %}
+    <span class="chip">
+      {%- case include.product.availability -%}
+      {%- when 'live' %}Available now
+      {%- when 'in_stock' %}In stock
+      {%- when 'out_of_stock' %}Out of stock
+      {%- else %}Preorder{% if include.product.ship_window %} - {{ include.product.ship_window }}{% endif %}
+      {%- endcase -%}
+    </span>
+    <span class="arrow" aria-hidden="true">&rarr;</span>
+  </div>
+</a>

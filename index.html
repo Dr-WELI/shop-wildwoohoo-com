@@ -9,6 +9,11 @@ schema:
   "@type": OnlineStore
   name: WildWooHoo Shop
   url: https://shop.wildwoohoo.com
+  logo: https://shop.wildwoohoo.com/assets/img/wwh-chip-green-112.png
+  sameAs:
+    - https://www.instagram.com/wildwoohoo/
+    - https://www.youtube.com/@wildwoohoo
+    - https://www.tiktok.com/@wildwoohoo
   parentOrganization:
     "@type": Organization
     name: WildWooHoo
@@ -29,22 +34,35 @@ schema:
   <h1>WildWooHoo <em>Shop</em></h1>
   <p class="shop-hero-lede">Books, educational materials, wear, prints and tools from the studio. Built to carry the same work the main site does into objects you can hold, hand to a class, or wear.</p>
   <div class="shop-hero-meta">
-    <span><strong>Status</strong> Opening soon</span>
-    <span><strong>First catalogue</strong> Digital downloads, Q3 2026</span>
-    <span><strong>Ships from</strong> Sydney, Australia</span>
+    <span><strong>Status</strong> {{ site.data.site.launch.status }}</span>
+    <span><strong>First catalogue</strong> {{ site.data.site.launch.first_catalogue }}</span>
+    <span><strong>Ships from</strong> {{ site.data.site.launch.ships_from }}</span>
   </div>
 </section>
 
 <section class="shop-section">
   <div class="shop-status">
-    <p><strong>Opening soon.</strong> The shop is being built. While we get the catalogue ready, the main site at <a href="https://wildwoohoo.com">wildwoohoo.com</a> is the place to follow the work. For collaborations and conversations, write to <a href="mailto:hello@wildwoohoo.com">hello@wildwoohoo.com</a>.</p>
+    <p><strong>Opening soon.</strong> The shop is being built. While we get the catalogue ready, the main site at <a href="{{ site.data.site.main_site.url }}">wildwoohoo.com</a> is the place to follow the work. For collaborations and conversations, write to <a href="mailto:{{ site.data.site.brand.email }}">{{ site.data.site.brand.email }}</a>.</p>
   </div>
 </section>
 
 <section class="shop-section">
   <div class="shop-section-header">
     <div>
-      <p class="shop-section-stamp">01 / What will live here</p>
+      <p class="shop-section-stamp"><span class="stamp-num">01</span> / The plan, in the open</p>
+      <h2>What opens <em>when</em></h2>
+    </div>
+  </div>
+
+  <p class="shop-section-lede">Three catalogues, opening in sequence. Real dates as we hold them, updated here if they move.</p>
+
+  {%- include launch-timeline.html -%}
+</section>
+
+<section class="shop-section">
+  <div class="shop-section-header">
+    <div>
+      <p class="shop-section-stamp"><span class="stamp-num">02</span> / What will live here</p>
       <h2>The five <em>catalogues</em></h2>
     </div>
   </div>
@@ -60,12 +78,34 @@ schema:
 <section class="shop-section">
   <div class="shop-section-header">
     <div>
-      <p class="shop-section-stamp">02 / What does not live here</p>
+      <p class="shop-section-stamp"><span class="stamp-num">03</span> / Register interest</p>
+      <h2>One email, when it <em>opens</em></h2>
+    </div>
+  </div>
+
+  <div class="ri-grid">
+    <div class="ri-card">
+      <h3>For educators</h3>
+      <p>The Kangaroo Time classroom kit opens the shop in Q3 2026.</p>
+      {%- include register-interest.html hook="educational" -%}
+    </div>
+    <div class="ri-card">
+      <h3>For families</h3>
+      <p>The Kangaroo Time books open in Q1 2027, four field-guide booklets in a slipcase.</p>
+      {%- include register-interest.html hook="childrens-books" -%}
+    </div>
+  </div>
+</section>
+
+<section class="shop-section">
+  <div class="shop-section-header">
+    <div>
+      <p class="shop-section-stamp"><span class="stamp-num">04</span> / What does not live here</p>
       <h2>Music and <em>sync</em></h2>
     </div>
   </div>
 
-  <p style="color: var(--wwh-text-mute); max-width: 720px; margin: 0 0 28px; font-size: 15px;">Music releases and sync licensing live on their own surfaces. The shop sells objects and materials; music has a music-native home and sync has a music-and-entertainment home.</p>
+  <p class="shop-section-lede">Music releases and sync licensing live on their own surfaces. The shop sells objects and materials; music has a music-native home and sync has a music-and-entertainment home.</p>
 
   <div class="off-shop-grid">
     <div class="off-shop-card">
@@ -84,4 +124,14 @@ schema:
       <p style="margin-top: 12px;"><a href="{{ site.data.site.main_site.collaborate_url }}">Collaborate &rarr;</a></p>
     </div>
   </div>
+</section>
+
+<section class="shop-section">
+  <div class="shop-section-header">
+    <div>
+      <p class="shop-section-stamp">How the shop trades</p>
+    </div>
+  </div>
+
+  {%- include trust-strip.html -%}
 </section>

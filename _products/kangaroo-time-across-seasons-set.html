@@ -17,10 +17,15 @@ format: Four saddle-stitch booklets in a slipcase
 languages: EN + PT
 age_band: 7-8
 
+# Catalogue placement (category must match a _categories slug; order sorts the grid)
+category: childrens-books
+order: 1
+
 # Commerce
 price: 70
 price_note: for the set of four
 availability: preorder
+fulfilment: inventory
 pod_failover: none
 ship_window: Q1 2027
 ships_from: Sydney, Australia
@@ -41,6 +46,12 @@ combo_contents:
 # Ethics / compliance
 icip_status: clean
 
+# Related (manual, max 3 - teaches the range, never maximises basket size)
+related:
+  - title: A Kangaroo Mob in Summer
+    url: /products/a-kangaroo-mob-in-summer/
+    reason: Start with one booklet before the full set.
+
 # Meta + cards
 description: Four short field-guide booklets following one eastern grey kangaroo mob through the seasons, in a slipcase. Ages 7 to 8, bilingual EN and PT. Opening Q1 2027.
 og_type: product
@@ -48,6 +59,7 @@ schema:
   "@context": https://schema.org
   "@type": Product
   name: A Kangaroo Mob Across Seasons, slipcase set
+  url: https://shop.wildwoohoo.com/products/kangaroo-time-across-seasons-set/
   sku: KT-5-COMBO
   brand:
     "@type": Brand
@@ -64,6 +76,12 @@ schema:
     price: 70
     priceCurrency: AUD
     availability: https://schema.org/PreOrder
+    hasMerchantReturnPolicy:
+      "@type": MerchantReturnPolicy
+      applicableCountry: AU
+      returnPolicyCategory: https://schema.org/MerchantReturnFiniteReturnWindow
+      merchantReturnDays: 30
+      merchantReturnLink: https://shop.wildwoohoo.com/policies/#returns
 ---
 
 <section class="shop-section">

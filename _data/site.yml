@@ -12,9 +12,11 @@ brand:
   country: Australia
   email: hello@wildwoohoo.com
 
-# Visible chip text. When the brand chip image lands, swap this for an image
-# include in _includes/header.html.
-chip_text: W
+# Brand chip image (header). alt stays empty: the brand anchor carries the
+# accessible name.
+chip:
+  image: /assets/img/wwh-chip-green-112.png
+  alt: ""
 
 main_site:
   url: https://wildwoohoo.com
@@ -23,6 +25,29 @@ main_site:
   research_url: https://wildwoohoo.com/research-and-educational/
   collaborate_url: https://wildwoohoo.com/collaborate/
   privacy_url: https://wildwoohoo.com/privacy/
+
+# Opening plan. The landing hero meta and the launch timeline both render
+# from here; when a date moves, edit it here once.
+launch:
+  status: Opening soon
+  first_catalogue: Digital downloads, Q3 2026
+  ships_from: Sydney, Australia
+  phases:
+    - num: "01"
+      window: Q3 2026
+      label: Digital downloads
+      line: The shop opens with the Kangaroo Time classroom kit and the Kangaroo Time stems pack.
+    - num: "02"
+      window: Q4 2026
+      label: Wear and prints
+      line: The print-on-demand baseline of tees, hoodies, totes, posters and stickers.
+    - num: "03"
+      window: Q1 2027
+      label: Books and companion
+      line: The first Kangaroo Time slipcase set, with the free books companion.
+
+# The on-shop policies destination page.
+policies_url: /policies/
 
 artist_site:
   url: https://drweli.com
@@ -39,6 +64,8 @@ social:
     handle: "@wildwoohoo"
     url: https://www.tiktok.com/@wildwoohoo
 
+# Main site carries the full three-nations AoC. Divergence flagged for WELI
+# 2026-06-12; do not change without sign-off.
 acknowledgement: >
   WildWooHoo Studio works on the unceded lands of the Gadigal people of
   the Eora Nation. We acknowledge their continuing connection to land,

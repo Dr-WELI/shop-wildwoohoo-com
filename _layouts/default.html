@@ -11,5 +11,13 @@
   </main>
 
   {%- include footer.html -%}
+  {%- comment -%}
+    lemon.js loads only on pages with a checkout_url. The buy anchor works
+    as a plain hosted-checkout link without this script; lemon.js only
+    enhances it to an overlay.
+  {%- endcomment -%}
+  {%- if page.checkout_url %}
+  <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+  {%- endif %}
 </body>
 </html>

@@ -5,21 +5,31 @@ layout: default
   Product-page layout. Front matter expected per _template/product-page.html
   schema. The product collection iterates this layout. Content body holds
   per-product copy (description, materials, fit, etc.) in Markdown / HTML.
+
+  Reading order: hero -> buy-state -> body copy -> spec grid (product-meta)
+  -> related -> safety note -> policy strip. Price renders ONLY in the buy
+  panel; the hero meta carries format / delivery / languages.
 {%- endcomment -%}
 
 <section class="shop-hero">
-  <span class="shop-hero-stamp">{{ page.breadcrumb }}</span>
+  {%- if page.breadcrumb %}<span class="shop-hero-stamp">{{ page.breadcrumb }}</span>{%- endif %}
   <h1>{{ page.title_prefix }}<em>{{ page.title_em | default: page.title }}</em></h1>
   {%- if page.lede %}
   <p class="shop-hero-lede">{{ page.lede }}</p>
   {%- endif %}
   <div class="shop-hero-meta">
-    {%- if page.price %}<span><strong>Price</strong> AU${{ page.price }}</span>{%- endif %}
-    {%- if page.sku %}<span><strong>SKU</strong> {{ page.sku }}</span>{%- endif %}
-    {%- if page.ships_from %}<span><strong>Ships from</strong> {{ page.ships_from }}</span>{%- endif %}
+    {%- if page.format %}<span><strong>Format</strong> {{ page.format }}</span>{%- endif %}
+    {%- if page.fulfilment == 'digital' %}<span><strong>Delivery</strong> Instant download</span>
+    {%- elsif page.ships_from %}<span><strong>Delivery</strong> Ships from {{ page.ships_from }}</span>{%- endif %}
+    {%- if page.languages %}<span><strong>Languages</strong> {{ page.languages }}</span>{%- endif %}
   </div>
 </section>
 
+{%- include buy-state.html -%}
+
 {{ content }}
 
-{%- include au-consumer-law.html -%}
+{%- include product-meta.html -%}
+{%- include related-products.html -%}
+{%- include safety-note.html -%}
+{%- include policy-strip.html -%}

@@ -1,0 +1,16 @@
+{%- comment -%}
+  Children's-product compliance line. Age recommendation always (when
+  page.age_band exists), supervision / wash / small-parts lines opt-in per
+  product via page.safety (list from: supervision, wash, small_parts).
+  Books (age_band, no safety list) render just the age line. Copy lives in
+  _data/policies.yml children.
+{%- endcomment -%}
+{%- if page.age_band %}
+<section class="shop-section">
+  <p class="shop-fineprint safety-note"><strong>For children.</strong> {{ site.data.policies.children.age_lead }} {{ page.age_band }}.
+  {%- if page.safety contains 'supervision' %} {{ site.data.policies.children.supervision }}{%- endif %}
+  {%- if page.safety contains 'wash' %} {{ site.data.policies.children.wash }}{%- endif %}
+  {%- if page.safety contains 'small_parts' %} {{ site.data.policies.children.small_parts }}{%- endif %}
+  </p>
+</section>
+{%- endif %}

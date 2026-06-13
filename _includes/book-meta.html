@@ -16,7 +16,7 @@
     {%- if page.languages %}<div><dt>Languages</dt><dd>{{ page.languages }}</dd></div>{%- endif %}
     {%- if page.universe %}<div><dt>Series</dt><dd>{{ page.universe }}{% if page.motif %}, {{ page.motif }}{% endif %}</dd></div>{%- endif %}
     {%- if page.face_of_four %}<div><dt>In the set</dt><dd>Booklet {{ page.face_of_four }}</dd></div>{%- endif %}
-    {%- if page.isbn %}<div><dt>ISBN</dt><dd>{{ page.isbn }}</dd></div>{%- endif %}
+    {%- if page.isbn and page.isbn != 'TBC' %}<div><dt>ISBN</dt><dd>{{ page.isbn }}</dd></div>{%- endif %}
     <div><dt>Imprint</dt><dd>{{ page.imprint | default: site.data.books.imprint }}</dd></div>
     {%- if page.made_in %}<div><dt>Made in</dt><dd>{{ page.made_in }}</dd></div>{%- endif %}
     {%- if page.ships_from %}<div><dt>Ships from</dt><dd>{{ page.ships_from }}</dd></div>{%- endif %}

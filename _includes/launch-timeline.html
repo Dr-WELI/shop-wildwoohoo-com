@@ -1,0 +1,15 @@
+{%- comment -%}
+  Opening timeline. States exactly what opens when and nothing the shop
+  cannot keep. Dates live in _data/site.yml launch.phases; update there
+  when they move. No links, no CTAs inside the strip - the register-interest
+  band below carries the action.
+{%- endcomment -%}
+<ol class="launch-timeline">
+{%- for phase in site.data.site.launch.phases %}
+  <li>
+    <span class="lt-num" aria-hidden="true">{{ phase.num }}</span><span class="lt-window">{{ phase.window }}</span>
+    <h3>{{ phase.label }}</h3>
+    <p>{{ phase.line }}</p>
+  </li>
+{%- endfor %}
+</ol>

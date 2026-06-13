@@ -29,7 +29,12 @@
       First Nations community whose knowledge it carries (then `co-authored`).
 
   COMMERCE STATES (buy-state include reads these)
-    availability: preorder | in_stock | out_of_stock
+    availability: live | in_stock | preorder | out_of_stock
+    checkout_url: Lemon Squeezy hosted-checkout URL. With availability: live
+      it renders the real buy button (plain anchor without lemon.js, overlay
+      when lemon.js loads). Without it, `live` renders a disabled button.
+    fulfilment: inventory for books (digital | pod | inventory). Picks the
+      tax line and the delivery disclosure line in the buy panel.
     pod_failover: none | lulu-direct
       - book-combo is ALWAYS `none` (slipcase sets are offset-only, no POD).
       - single booklet can be `lulu-direct` (print-on-demand failover).
@@ -48,7 +53,8 @@
     assumption.
 
   AU CONSUMER LAW (per Insight 11)
-    Auto-appended by the book layout. Do not duplicate here.
+    Arrives automatically via the policy strip (_includes/policy-strip.html)
+    appended by the book layout. Do not duplicate here.
 -->
 
 <!-- ===== FRONT MATTER (copy this YAML block; do not include this comment) =====
@@ -67,6 +73,10 @@ isbn: TBC                      # Thorpe-Bowker ISBN once allocated
 imprint: WildWooHoo Books
 breadcrumb: Children's books - REPLACE-ME series
 
+# Catalogue placement
+category: childrens-books     # must match a _categories slug
+order: REPLACE-ME             # sort position in the category grid
+
 # Hero
 lede: REPLACE-ME 1-2 sentence opening. Name the thing, locate it.
 format: Saddle-stitch booklet  # or "Four saddle-stitch booklets in a slipcase"
@@ -80,7 +90,9 @@ face_of_four: "REPLACE-ME of 4"  # single booklets only
 # Commerce
 price: REPLACE-ME              # round AU$ integer
 price_note: null              # e.g. "for the set of four" on a combo
-availability: preorder        # preorder | in_stock | out_of_stock
+availability: preorder        # live | in_stock | preorder | out_of_stock
+checkout_url: null            # Lemon Squeezy hosted-checkout URL; with availability: live this renders the buy button
+fulfilment: inventory         # digital | pod | inventory
 pod_failover: lulu-direct     # single booklet: lulu-direct ; combo: none
 ship_window: REPLACE-ME       # e.g. "2027" (preorder copy)
 ships_from: Sydney, Australia
@@ -97,6 +109,12 @@ companion_code: REPLACE-ME-CODE
 
 # Ethics
 icip_status: clean            # clean | co-authored
+
+# Related products (manual, max 3, per Insight 35) - related-products.html
+related:
+  - title: REPLACE-ME related product name
+    url: /products/REPLACE-ME-slug/
+    reason: REPLACE-ME one line on why a buyer would care.
 
 # Meta
 description: REPLACE-ME 150-160 char hand-written meta description.
@@ -138,7 +156,8 @@ schema:
 </section>
 
 <!--
-  Note: spec grid, combo contents, companion explainer, ethics + ICIP
-  transparency, and the AU Consumer Law block are all appended automatically
-  by the book layout (_layouts/book.html). Do not duplicate them here.
+  Note: buy panel, spec grid, combo contents, companion explainer, ethics +
+  ICIP transparency, related products, safety note and policy strip (which
+  carries the AU Consumer Law sentence) are all appended automatically by
+  the book layout (_layouts/book.html). Do not duplicate them here.
 -->

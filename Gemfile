@@ -3,11 +3,12 @@ source "https://rubygems.org"
 # Pinned to the github-pages gem so local builds match GitHub Pages' build
 # exactly. Update via `bundle update github-pages` if GitHub Pages updates.
 # Reference: https://pages.github.com/versions/
+# Local builds need Ruby 3.x; the system Ruby 2.6 cannot build this site.
+# Verify on the GitHub Pages build after push.
 gem "github-pages", group: :jekyll_plugins
 
 group :jekyll_plugins do
   gem "jekyll-sitemap"
-  gem "jekyll-seo-tag"
 end
 
 # Performance booster (Jekyll suggestion)

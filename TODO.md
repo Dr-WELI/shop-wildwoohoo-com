@@ -38,9 +38,9 @@ These need WELI rulings. Listed in deadline order.
 
 Small, low-risk polish that improves how the placeholder shop looks while products are being built.
 
-- [ ] **D1.** Replace the `W` text chip in the header with the actual WildWooHoo brand chip image (`wwh-chip-green.png` from the main site repo). Copy into `assets/img/` and update the `index.html` + four category pages + 404 + product template.
-- [ ] **D2.** Add a favicon set under `assets/img/` and reference from each HTML head. Source from main site (`favicon.ico`, `favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png`).
-- [ ] **D3.** Add an Open Graph image at `assets/img/og-shop.png` (1200x630) and reference from every page's `og:image` meta. Coordinate with the main site's `og-card.png` aesthetic.
+- [x] **D1.** Replace the `W` text chip in the header with the actual WildWooHoo brand chip image (`wwh-chip-green.png` from the main site repo). Copy into `assets/img/` and update the `index.html` + four category pages + 404 + product template. (done 2026-06-12)
+- [x] **D2.** Add a favicon set under `assets/img/` and reference from each HTML head. Source from main site (`favicon.ico`, `favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png`). (done 2026-06-12)
+- [x] **D3.** Add an Open Graph image at `assets/img/og-shop.png` (1200x630) and reference from every page's `og:image` meta. Coordinate with the main site's `og-card.png` aesthetic. (done 2026-06-12)
 - [ ] **D4.** Consider adding the language switcher used on the main site (Google Translate dropdown). Brief lifted from `wildwoohoo.com/index.html` line 84-100.
 - [ ] **D5.** Add a brief one-line "Opening Q3 2026, digital downloads first" status banner to the top of `index.html` for visitors who land before the catalogue exists.
 

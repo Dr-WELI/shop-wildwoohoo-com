@@ -1,0 +1,118 @@
+---
+layout: default
+title: How the shop trades
+description: "Returns, shipping, prices and tax, and your rights when buying from WildWooHoo Shop. 30-day returns, ships from Sydney, prices in Australian dollars."
+permalink: /policies/
+---
+{%- comment -%}
+  The policies destination page. Every sentence renders from
+  _data/policies.yml (single source) so this page can never diverge from
+  the policy strips on product pages. WELI reads this page once top to
+  bottom before deploy (single-pass editorial class).
+{%- endcomment -%}
+
+<section class="shop-hero">
+  <span class="shop-hero-stamp">Policies</span>
+  <h1>How the shop <em>trades</em></h1>
+  <p class="shop-hero-lede">Plain answers about buying from the shop: returns, shipping, prices, and your rights. If anything here is unclear, write to <a href="mailto:{{ site.data.site.brand.email }}">{{ site.data.site.brand.email }}</a> and a person will answer.</p>
+  <div class="shop-hero-meta">
+    <span><a href="#returns">Returns</a></span>
+    <span><a href="#shipping">Shipping</a></span>
+    <span><a href="#prices-and-tax">Prices and tax</a></span>
+    <span><a href="#your-rights">Your rights</a></span>
+    <span><a href="#eu">EU orders</a></span>
+    <span><a href="#children">Children's products</a></span>
+    <span><a href="#who">Who you are buying from</a></span>
+  </div>
+</section>
+
+<section class="shop-section" id="returns">
+  <div class="shop-section-header">
+    <div>
+      <p class="shop-section-stamp">Returns</p>
+      <h2>Returns</h2>
+    </div>
+  </div>
+  <div class="shop-prose">
+    <p>{{ site.data.policies.returns.faulty }}</p>
+    <p>{{ site.data.policies.returns.change_of_mind }}</p>
+    <p>{{ site.data.policies.returns.digital }}</p>
+  </div>
+</section>
+
+<section class="shop-section" id="shipping">
+  <div class="shop-section-header">
+    <div>
+      <p class="shop-section-stamp">Shipping</p>
+      <h2>Shipping and delivery</h2>
+    </div>
+  </div>
+  <div class="shop-prose">
+    <p>{{ site.data.policies.shipping.domestic }}</p>
+    <p>{{ site.data.policies.shipping.international }}</p>
+    <p>{{ site.data.policies.shipping.pod }}</p>
+    <p>{{ site.data.policies.shipping.digital }}</p>
+  </div>
+</section>
+
+<section class="shop-section" id="prices-and-tax">
+  <div class="shop-section-header">
+    <div>
+      <p class="shop-section-stamp">Prices</p>
+      <h2>Prices and tax</h2>
+    </div>
+  </div>
+  <div class="shop-prose">
+    <p>{{ site.data.policies.tax.prose }}</p>
+  </div>
+</section>
+
+<section class="shop-section" id="your-rights">
+  <div class="shop-section-header">
+    <div>
+      <p class="shop-section-stamp">Your rights</p>
+      <h2>Your rights</h2>
+    </div>
+  </div>
+  <div class="shop-prose">
+    <p>{{ site.data.policies.returns.acl_lead }} <a href="mailto:{{ site.data.site.brand.email }}">{{ site.data.site.brand.email }}</a> {{ site.data.policies.returns.acl_tail }}</p>
+  </div>
+</section>
+
+<section class="shop-section" id="eu">
+  <div class="shop-section-header">
+    <div>
+      <p class="shop-section-stamp">EU orders</p>
+      <h2>EU orders</h2>
+    </div>
+  </div>
+  <div class="shop-prose">
+    <p>{{ site.data.policies.shipping.eu }}</p>
+  </div>
+</section>
+
+<section class="shop-section" id="children">
+  <div class="shop-section-header">
+    <div>
+      <p class="shop-section-stamp">Children</p>
+      <h2>Children's products</h2>
+    </div>
+  </div>
+  <div class="shop-prose">
+    <p>{{ site.data.policies.children.prose }}</p>
+  </div>
+</section>
+
+<section class="shop-section" id="who">
+  <div class="shop-section-header">
+    <div>
+      <p class="shop-section-stamp">Identity</p>
+      <h2>Who you are buying from</h2>
+    </div>
+  </div>
+  <div class="shop-prose">
+    {%- capture main_link %}<a href="{{ site.data.site.main_site.url }}">wildwoohoo.com</a>{% endcapture -%}
+    {%- capture weli_link %}<a href="{{ site.data.site.artist_site.url }}">Dr WELI</a>{% endcapture -%}
+    <p>{{ site.data.policies.identity.who_prose | replace: 'wildwoohoo.com', main_link | replace: 'Dr WELI', weli_link }}</p>
+  </div>
+</section>
