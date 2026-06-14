@@ -1,23 +1,28 @@
 {%- comment -%}
   Shop header. Used on every page via the default layout.
 
-  Active-state: pages with `category_slug` matching a nav item get an
-  `aria-current="page"` attribute for accessibility + styling hooks.
-
-  Below 560px the inline nav hides and the details/summary disclosure menu
-  (.shop-menu) shows instead - pure HTML + CSS, no JavaScript. The chip
-  image carries an empty alt: the brand anchor's aria-label is the
-  accessible name.
+  - Announcement bar on top: the trust + launch-offer strip (honest, pre-launch
+    register incentive, not fake scarcity). Driven from _data/site.yml.
+  - Logo is the cut-edge wordmark (the trademark wordmark with slot cuts on the
+    W + final o), per the brand rule "mark OR wordmark, never both".
+  - Right actions: currency (AUD), the no-JS mobile disclosure menu, Cart soon.
+  - Below 560px the inline nav hides and the details/summary menu shows.
 {%- endcomment -%}
 <a class="skip-link" href="#main">Skip to content</a>
+
+{%- if site.data.site.announcement %}
+<a class="shop-announce" href="{{ site.data.site.announcement.url }}">
+  <span class="shop-announce-arrow" aria-hidden="true">&lsaquo;</span>
+  <span class="shop-announce-msg">{{ site.data.site.announcement.message }}</span>
+  <span class="shop-announce-arrow" aria-hidden="true">&rsaquo;</span>
+</a>
+{%- endif %}
 
 <header class="shop-header">
   <div class="shop-header-inner">
     <a href="{{ '/' | relative_url }}" class="shop-brand" aria-label="{{ site.data.site.brand.shop_name }} home">
-      <img class="shop-brand-chip-img" src="{{ site.data.site.chip.image | relative_url }}" alt="" width="36" height="36">
-      <span class="shop-brand-text">
-        {{ site.data.site.brand.name }}<span class="shop-brand-sub">Shop</span>
-      </span>
+      <img class="shop-wordmark" src="{{ site.data.site.wordmark.image | relative_url }}" alt="" width="150" height="27">
+      <span class="shop-brand-sub">Shop</span>
     </a>
 
     <nav class="shop-nav" aria-label="Shop navigation">
@@ -29,17 +34,19 @@
       <a href="{{ site.data.site.main_site.url }}" class="back-to-main">{{ site.data.site.main_site.label }}</a>
     </nav>
 
-    <details class="shop-menu">
-      <summary aria-label="Menu"><span></span><span></span><span></span></summary>
-      <div class="shop-menu-panel">
-        {%- for item in site.data.nav.primary %}<a href="{{ item.url | relative_url }}">{{ item.label }}</a>{%- endfor %}
-        <a href="{{ site.data.site.main_site.url }}">{{ site.data.site.main_site.label }}</a>
-        <a href="mailto:{{ site.data.site.brand.email }}">{{ site.data.site.brand.email }}</a>
-      </div>
-    </details>
-
-    <button type="button" class="shop-cart" aria-label="Cart, opening soon" disabled>
-      <span class="shop-cart-status">Cart soon</span>
-    </button>
+    <div class="shop-header-actions">
+      {%- if site.data.site.currency %}<span class="shop-ccy">{{ site.data.site.currency }}</span>{%- endif %}
+      <details class="shop-menu">
+        <summary aria-label="Menu"><span></span><span></span><span></span></summary>
+        <div class="shop-menu-panel">
+          {%- for item in site.data.nav.primary %}<a href="{{ item.url | relative_url }}">{{ item.label }}</a>{%- endfor %}
+          <a href="{{ site.data.site.main_site.url }}">{{ site.data.site.main_site.label }}</a>
+          <a href="mailto:{{ site.data.site.brand.email }}">{{ site.data.site.brand.email }}</a>
+        </div>
+      </details>
+      <button type="button" class="shop-cart" aria-label="Cart, opening soon" disabled>
+        <span class="shop-cart-status">Cart soon</span>
+      </button>
+    </div>
   </div>
 </header>

@@ -45,6 +45,63 @@
   --wwh-focus-ring:   #1C8A90;
 }
 
+/* =============================================================================
+   STOREFRONT HEADER + CUT AESTHETIC (2026-06-14, WELI: "shops I'd trust have
+   this sort of heading and something with discount; use the cut-edge wordmark
+   and apply the cut aesthetic; add a discrete near-white brand watermark").
+   ========================================================================== */
+/* The chip's slot-cut corner, reused across the shop (top-right + bottom-left) */
+:root {
+  --wwh-cut:    polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  --wwh-cut-sm: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+/* ---- Announcement bar (trust + honest launch offer) --------------------- */
+.shop-announce {
+  display: flex; align-items: center; justify-content: center; gap: 18px;
+  padding: 9px 24px;
+  background: var(--wwh-text);
+  color: #FFFFFF;
+  font-size: 12px; letter-spacing: 0.06em; text-align: center;
+}
+.shop-announce-msg { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(255,255,255,0.4); }
+.shop-announce:hover .shop-announce-msg { text-decoration-color: #FFFFFF; }
+.shop-announce-arrow { color: rgba(255,255,255,0.5); font-size: 17px; line-height: 1; }
+
+/* ---- Cut-edge wordmark logo + right-side actions ------------------------ */
+.shop-wordmark { height: 26px; width: auto; display: block; }
+.shop-brand-sub { align-self: center; }
+.shop-header-actions { display: flex; align-items: center; gap: 16px; }
+.shop-ccy { font-size: 13px; font-weight: 500; color: var(--wwh-text-mute); letter-spacing: 0.02em; }
+
+/* ---- Floating launch-offer button (bottom-left, like trusted stores) ---- */
+.shop-offer-float {
+  position: fixed; left: 20px; bottom: 20px; z-index: 90;
+  padding: 12px 20px;
+  background: var(--wwh-savanna); color: #FFFFFF;
+  font-family: 'Syne', sans-serif; font-weight: 600; font-size: 13px;
+  clip-path: var(--wwh-cut-sm);
+}
+.shop-offer-float:hover { background: #25553A; }
+@media (max-width: 560px) { .shop-offer-float { left: 12px; bottom: 12px; font-size: 12px; padding: 10px 16px; } }
+
+/* ---- Cut-corner aesthetic on filled cards + buttons (fill contrast carries
+   the chamfer; left-border accents like .shop-status are left square) ------ */
+.cat-card, .ri-card { border-radius: 0; clip-path: var(--wwh-cut); }
+.buy-btn, .chip { border-radius: 0; clip-path: var(--wwh-cut-sm); }
+
+/* ---- Discrete near-white wordmark watermark (brand reinforcement) ------- */
+.shop-hero { position: relative; overflow: hidden; }
+.shop-hero::before {
+  content: ""; position: absolute; right: -2%; top: 50%;
+  transform: translateY(-50%);
+  width: min(620px, 64%); aspect-ratio: 900 / 160;
+  background: url("/assets/img/wwh-wordmark.svg") no-repeat center / contain;
+  opacity: 0.05;            /* a ghost: almost white on white, just enough to read */
+  pointer-events: none; z-index: 0;
+}
+.shop-hero > * { position: relative; z-index: 1; }
+
 /* ---- Reset + base ------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }

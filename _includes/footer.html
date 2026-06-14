@@ -46,3 +46,7 @@
     <span class="shop-footer-legal">{%- for item in site.data.nav.legal %}<a href="{% if item.url contains '://' %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}">{{ item.label }}</a>{%- endfor %}</span>
   </div>
 </footer>
+
+{%- if site.data.site.offer %}
+<a class="shop-offer-float" href="{{ site.data.site.offer.url }}">{{ site.data.site.offer.label }}</a>
+{%- endif %}

@@ -18,6 +18,29 @@ chip:
   image: /assets/img/wwh-chip-green-112.png
   alt: ""
 
+# Cut-edge wordmark (the trademark wordmark with the slot cuts on the W + final
+# o). Replaces the chip in the header per the brand rule "mark OR wordmark,
+# never both". The white variant is the discrete near-white watermark.
+wordmark:
+  image: /assets/img/wwh-wordmark.svg
+  white: /assets/img/wwh-wordmark-white.svg
+
+# Top announcement bar (the trust + offer strip every real store has). HONEST:
+# the shop is pre-launch, so this is a genuine launch incentive tied to the
+# register-interest capture, NOT fake scarcity. WELI: confirm you will honour
+# the 15% launch offer; edit the wording here.
+announcement:
+  message: Register now and get 15% off your first order when the shop opens
+  url: "mailto:hello@wildwoohoo.com?subject=Register%20interest%3A%2015%25%20launch%20offer&body=Tell%20me%20when%20the%20shop%20opens%20-%20I%20would%20like%20the%2015%25%20first-order%20offer."
+
+# Floating launch-offer button (like the "Get 15% off" on trusted stores).
+offer:
+  label: 15% off at launch
+  url: "mailto:hello@wildwoohoo.com?subject=Register%20interest%3A%2015%25%20launch%20offer&body=Tell%20me%20when%20the%20shop%20opens%20-%20I%20would%20like%20the%2015%25%20first-order%20offer."
+
+# Currency shown in the header (the shop prices in AUD).
+currency: "AUD $"
+
 main_site:
   url: https://wildwoohoo.com
   label: Main site
