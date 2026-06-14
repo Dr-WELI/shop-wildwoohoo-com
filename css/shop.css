@@ -19,6 +19,32 @@
    Built 2026-06-08. Owner: WildWooHoo Studio.
    ========================================================================== */
 
+/* =============================================================================
+   LIGHT THEME (2026-06-14, WELI) - the shop is a SELLING surface, not a brand
+   mood piece: light, airy, Tesla-style. Dark text on near-white, green as a
+   restrained accent. This overrides the dark tokens from wwh-brand-tokens.css
+   for the shop only (shop.css loads after the tokens file, so these win).
+   ========================================================================== */
+:root {
+  --wwh-bg:           #FFFFFF;   /* page background */
+  --wwh-bg-soft:      #F6F5F1;   /* cards, footer, status, buy panel */
+  --wwh-surface:      #F6F5F1;
+  --wwh-surface-lift: #EFEDE6;
+  --wwh-text:         #17211B;   /* near-black ink, faint green */
+  --wwh-text-mute:    #5C6760;   /* secondary text */
+  --wwh-text-faint:   #98A09A;   /* hints, disabled */
+  --wwh-divider:      #E6E4DD;   /* hairlines */
+  --wwh-moss:         #4E7D63;   /* decorative green (numbers, markers, ghost border) */
+  --wwh-sage-bright:  #2F6B45;   /* accent links/text - readable green on white */
+  --wwh-sage-light:   #FFFFFF;   /* light text that sits on green buttons / dark fills */
+  --wwh-savanna:      #2F6B45;   /* primary CTA green (deepened for white) */
+  --wwh-brand:        #2F6B45;
+  --wwh-cyan:         #1C8A90;   /* link hover - teal, readable on white */
+  --wwh-yellow:       #B07F30;   /* amber accent readable on white */
+  --wwh-magenta:      #2F6B45;   /* the shop carries no magenta; map to the green accent */
+  --wwh-focus-ring:   #1C8A90;
+}
+
 /* ---- Reset + base ------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
@@ -65,7 +91,7 @@ strong { font-weight: 600; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(2, 2, 4, 0.85);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--wwh-divider);
@@ -164,7 +190,7 @@ strong { font-weight: 600; }
   display: block;
   height: 1.5px;
   width: 18px;
-  background: var(--wwh-sage-light);
+  background: var(--wwh-text);
 }
 .shop-menu summary span:nth-child(2) { width: 22px; }
 .shop-menu summary span:nth-child(3) { width: 14px; }
@@ -174,7 +200,7 @@ strong { font-weight: 600; }
   right: -8px;
   top: calc(100% + 10px);
   min-width: 220px;
-  background: rgba(2, 2, 4, 0.92);
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--wwh-divider);
