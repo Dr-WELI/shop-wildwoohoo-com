@@ -90,17 +90,27 @@
 .cat-card, .ri-card { border-radius: 0; clip-path: var(--wwh-cut); }
 .buy-btn, .chip { border-radius: 0; clip-path: var(--wwh-cut-sm); }
 
-/* ---- Discrete near-white wordmark watermark (brand reinforcement) ------- */
-.shop-hero { position: relative; overflow: hidden; }
-.shop-hero::before {
-  content: ""; position: absolute; right: -2%; top: 50%;
-  transform: translateY(-50%);
-  width: min(620px, 64%); aspect-ratio: 900 / 160;
-  background: url("/assets/img/wwh-wordmark.svg") no-repeat center / contain;
-  opacity: 0.05;            /* a ghost: almost white on white, just enough to read */
-  pointer-events: none; z-index: 0;
+/* ---- Discrete logo (chip) watermarks, scattered down the page ----------- */
+/* The brand mark (the chip creature) ghosted faintly several times through the
+   page - "almost white", brand texture. Alternates side per section; content
+   is z-lifted above. */
+.shop-hero, .shop-section { position: relative; }
+.shop-hero > *, .shop-section > * { position: relative; z-index: 1; }
+.shop-hero::before, .shop-section::before {
+  content: "";
+  position: absolute; z-index: 0;
+  width: 180px; height: 180px;
+  background: url("/assets/img/wwh-chip-green-112.png") no-repeat center / contain;
+  opacity: 0.05;            /* a ghost: almost white on white */
+  pointer-events: none;
 }
-.shop-hero > * { position: relative; z-index: 1; }
+.shop-hero::before { right: 3%; top: 22%; width: 230px; height: 230px; }
+.shop-section:nth-of-type(odd)::before  { right: 3%;  top: 26%; transform: rotate(6deg); }
+.shop-section:nth-of-type(even)::before { left: 3%;   top: 30%; transform: rotate(-7deg); width: 150px; height: 150px; }
+@media (max-width: 700px) {
+  .shop-hero::before, .shop-section::before { width: 130px; height: 130px; opacity: 0.05; }
+  .shop-hero::before { width: 150px; height: 150px; }
+}
 
 /* ---- Reset + base ------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
