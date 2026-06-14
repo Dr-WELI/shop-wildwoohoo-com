@@ -40,6 +40,7 @@
   --wwh-savanna:      #2F6B45;   /* primary CTA green (deepened for white) */
   --wwh-brand:        #2F6B45;
   --wwh-cyan:         #1C8A90;   /* link hover - teal, readable on white */
+  --wwh-cyan-bright:  #5DDFE6;   /* electric cyan from the main site; DARK surfaces only (announce bar) */
   --wwh-yellow:       #B07F30;   /* amber accent readable on white */
   --wwh-magenta:      #2F6B45;   /* the shop carries no magenta; map to the green accent */
   --wwh-focus-ring:   #1C8A90;
@@ -63,10 +64,11 @@
   background: var(--wwh-text);
   color: #FFFFFF;
   font-size: 12px; letter-spacing: 0.06em; text-align: center;
+  box-shadow: inset 0 2px 0 var(--wwh-cyan-bright);   /* electric-cyan hairline at the very top - echoes the main site */
 }
-.shop-announce-msg { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(255,255,255,0.4); }
-.shop-announce:hover .shop-announce-msg { text-decoration-color: #FFFFFF; }
-.shop-announce-arrow { color: rgba(255,255,255,0.5); font-size: 17px; line-height: 1; }
+.shop-announce-msg { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(93,223,230,0.55); }
+.shop-announce:hover .shop-announce-msg { text-decoration-color: var(--wwh-cyan-bright); }
+.shop-announce-arrow { color: var(--wwh-cyan-bright); font-size: 17px; line-height: 1; }
 
 /* ---- Cut-edge wordmark logo + right-side actions ------------------------ */
 .shop-wordmark { height: 26px; width: auto; display: block; }
@@ -120,6 +122,7 @@ img, svg { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; padding: 0; }
 ul { list-style: none; padding: 0; margin: 0; }
+::selection { background: rgba(93,223,230,0.30); color: var(--wwh-text); }   /* cyan text-selection detail */
 
 body {
   background: var(--wwh-bg);
@@ -215,7 +218,7 @@ strong { font-weight: 600; }
   transition: color 160ms ease;
 }
 
-.shop-nav a:hover, .shop-nav a:focus { color: var(--wwh-text); }
+.shop-nav a:hover, .shop-nav a:focus { color: var(--wwh-cyan); }
 
 .shop-nav a.back-to-main::before { content: "←  "; color: var(--wwh-moss); }
 
@@ -539,7 +542,7 @@ strong { font-weight: 600; }
   transition: color 160ms ease;
 }
 
-.shop-footer-menu a:hover { color: var(--wwh-text); }
+.shop-footer-menu a:hover { color: var(--wwh-cyan); }
 
 .shop-footer-bottom {
   max-width: 1280px;
