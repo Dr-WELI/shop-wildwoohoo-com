@@ -30,19 +30,19 @@
   --wwh-bg-soft:      #F6F5F1;   /* cards, footer, status, buy panel */
   --wwh-surface:      #F6F5F1;
   --wwh-surface-lift: #EFEDE6;
-  --wwh-text:         #17211B;   /* near-black ink, faint green */
-  --wwh-text-mute:    #5C6760;   /* secondary text */
+  --wwh-text:         #1A2420;   /* near-black ink (charcoal-green) */
+  --wwh-text-mute:    #5C6B62;   /* secondary text (sage-grey on cream) */
   --wwh-text-faint:   #98A09A;   /* hints, disabled */
   --wwh-divider:      #E6E4DD;   /* hairlines */
-  --wwh-moss:         #4E7D63;   /* decorative green (numbers, markers, ghost border) */
-  --wwh-sage-bright:  #2F6B45;   /* accent links/text - readable green on white */
-  --wwh-sage-light:   #FFFFFF;   /* light text that sits on green buttons / dark fills */
-  --wwh-savanna:      #2F6B45;   /* primary CTA green (deepened for white) */
-  --wwh-brand:        #2F6B45;
+  --wwh-moss:         #9FB4A6;   /* decorative sage-grey (numbers, markers, ghost border) */
+  --wwh-sage-bright:  #1C8A90;   /* accent links/text - cyan-teal, AA on white */
+  --wwh-sage-light:   #FFFFFF;   /* light text that sits on CTA fills / dark fills */
+  --wwh-savanna:      #FF7A4D;   /* primary CTA - coral */
+  --wwh-brand:        #FF7A4D;
   --wwh-cyan:         #1C8A90;   /* link hover - teal, readable on white */
   --wwh-cyan-bright:  #5DDFE6;   /* electric cyan from the main site; DARK surfaces only (announce bar) */
   --wwh-yellow:       #B07F30;   /* amber accent readable on white */
-  --wwh-magenta:      #2F6B45;   /* the shop carries no magenta; map to the green accent */
+  --wwh-magenta:      #DC3CAD;   /* music / performance spark - real magenta */
   --wwh-focus-ring:   #1C8A90;
 }
 
@@ -84,7 +84,7 @@
   font-family: 'Syne', sans-serif; font-weight: 600; font-size: 13px;
   clip-path: var(--wwh-cut-sm);
 }
-.shop-offer-float:hover { background: #25553A; }
+.shop-offer-float:hover { background: #E0633A; }
 @media (max-width: 560px) { .shop-offer-float { left: 12px; bottom: 12px; font-size: 12px; padding: 10px 16px; } }
 
 /* ---- Cut-corner aesthetic on filled cards + buttons (fill contrast carries
