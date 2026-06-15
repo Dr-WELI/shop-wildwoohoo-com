@@ -71,7 +71,7 @@
 .shop-announce-arrow { color: var(--wwh-cyan-bright); font-size: 17px; line-height: 1; }
 
 /* ---- Cut-edge wordmark logo + right-side actions ------------------------ */
-.shop-wordmark { height: 26px; width: auto; display: block; }
+.shop-wordmark { height: 40px; width: auto; display: block; }
 .shop-brand-sub { align-self: center; }
 .shop-header-actions { display: flex; align-items: center; gap: 16px; }
 .shop-ccy { font-size: 13px; font-weight: 500; color: var(--wwh-text-mute); letter-spacing: 0.02em; }
