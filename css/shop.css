@@ -102,7 +102,7 @@
   content: "";
   position: absolute; z-index: 0;
   width: 180px; height: 180px;
-  background: url("/assets/img/wwh-chip-green-112.png") no-repeat center / contain;
+  background: url("/assets/img/wwh-chip.svg") no-repeat center / contain;
   opacity: 0.05;            /* a ghost: almost white on white */
   pointer-events: none;
 }
