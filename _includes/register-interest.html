@@ -1,7 +1,10 @@
 {%- comment -%}
-  Permission-based register-interest hook. The promise line is an operational
-  commitment - one email per hook when it opens. Swap the anchor for a form
-  embed here when SHP-007 lands; pages never change.
+  Permission-based register-interest hook. SHP-007 (2026-06-28): the mailto
+  anchor is now a Buttondown email form (buttondown.com/weli). One include
+  feeds every "notify me" spot; pages never change. The hook is passed as a
+  Buttondown `tag` for per-list segmentation. With JS the form posts to
+  Buttondown then redirects to /thanks/; with JS off it posts straight to
+  Buttondown's confirmation page. The mailto stays as a secondary fallback.
 
   Signature: {% include register-interest.html hook="educational" %}
   (or hook=page.interest_hook). Hooks live in _data/interest.yml.
@@ -10,8 +13,16 @@
 {%- if h %}
 <div class="register-interest">
   <p class="ri-context">{{ h.context }}</p>
-  <a class="buy-btn ghost" href="mailto:{{ site.data.site.brand.email }}?subject={{ h.subject | url_encode | replace: '+', '%20' }}{% if h.body != '' %}&body={{ h.body | url_encode | replace: '+', '%20' }}{% endif %}">{{ h.label }}</a>
+  <form class="ri-form" action="https://buttondown.com/api/emails/embed-subscribe/weli" method="post" aria-label="{{ h.label }}">
+    <input class="ri-input" type="email" name="email" placeholder="you@email.com" aria-label="Your email address" autocomplete="email" required>
+    <input type="hidden" name="tag" value="{{ include.hook }}">
+    <input type="hidden" name="embed" value="1">
+    <button class="buy-btn" type="submit">{{ h.label }}</button>
+  </form>
   <p class="ri-promise">{{ site.data.interest.promise }}</p>
   <p class="ri-fallback">{{ site.data.interest.fallback_lead }} <a href="mailto:{{ site.data.site.brand.email }}">{{ site.data.site.brand.email }}</a> {{ site.data.interest.fallback_mid }} "{{ h.subject }}".</p>
 </div>
+<script>
+if(!window.__riInit){window.__riInit=true;document.addEventListener('submit',function(e){var f=e.target;if(!(f.classList&&f.classList.contains('ri-form')))return;e.preventDefault();var body=new URLSearchParams(new FormData(f));fetch(f.action,{method:'POST',mode:'no-cors',body:body}).catch(function(){}).finally(function(){window.location.href='/thanks/';});});}
+</script>
 {%- endif %}

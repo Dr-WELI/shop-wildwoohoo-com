@@ -668,6 +668,20 @@ strong { font-weight: 600; }
 .ri-fallback { margin: 6px 0 0; font-size: 12px; color: var(--wwh-text-mute); }
 .ri-fallback a { color: var(--wwh-sage-bright); }
 
+/* SHP-007: Buttondown email form */
+.ri-form { display: flex; flex-wrap: wrap; gap: 10px; align-items: stretch; margin: 0; max-width: 520px; }
+.ri-input {
+  flex: 1 1 220px; min-width: 0;
+  font: inherit; font-size: 15px; line-height: 1.2;
+  padding: 12px 14px;
+  color: var(--wwh-text); background: #fff;
+  border: 1px solid var(--wwh-moss);
+  border-radius: 0; clip-path: var(--wwh-cut-sm);
+}
+.ri-input::placeholder { color: var(--wwh-text-mute); }
+.ri-input:focus { outline: none; border-color: var(--wwh-sage-bright); }
+.ri-form .buy-btn { flex: 0 0 auto; }
+
 /* ---- Trust strip (landing identity row; book-meta register) -------------- */
 dl.trust-strip {
   display: grid;
