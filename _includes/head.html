@@ -54,6 +54,17 @@
 </script>
 {% endif %}
 
+<!-- Cross-domain entity graph (Dr WELI + WildWooHoo) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "Person", "@id": "https://drweli.com/#person", "name": "Dr Weliton Menário Costa", "alternateName": "Dr WELI", "url": "https://drweli.com/", "award": "AAAS Dance Your PhD Global Winner 2024", "sameAs": "https://orcid.org/0000-0003-2457-3658"},
+    {"@type": "Organization", "@id": "https://wildwoohoo.com/#org", "name": "WildWooHoo", "url": "https://wildwoohoo.com/", "founder": {"@id": "https://drweli.com/#person"}}
+  ]
+}
+</script>
+
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-D4RWLGJH6Y"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-D4RWLGJH6Y');</script>
